@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Calmer Blue-Accented, Notion/Shadcn Inspired Aesthetic - Enhanced Fonts & Formatting */
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FFFFFF; 
@@ -535,7 +535,7 @@
             <textarea id="dietPreferences" class="gemini-input h-28" placeholder="e.g., 'easy-to-digest breakfast', 'low-lactose snacks'"></textarea> <button id="generateDietIdeasBtn" class="gemini-button">Get Diet Ideas</button>
             <div id="dietIdeasLoader" class="hidden loading-spinner"></div>
             <div id="dietIdeasOutput" class="gemini-output mt-5 hidden"></div>
-            <p class="disclaimer-text">These are general dietary suggestions and not medical advice. Always discuss your diet with your doctor or a registered dietitian to create a plan that's right for your specific UC and nutritional needs.</p>
+         
         </div>
 
         <div class="mt-12"> <h3 class="text-center">Common Nutritional Concerns & Deficiencies</h3>
@@ -548,8 +548,8 @@
     </section>
 
     <footer class="footer-text">
-        <p>This infographic provides general information about Ulcerative Colitis. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition or treatment options.</p>
-        <p class="mt-3">AI-generated content, such as question suggestions and diet ideas, is for informational and brainstorming purposes only. This content should be reviewed and discussed with a qualified healthcare professional before making any decisions related to your health or treatment.</p>
+        <p>Made By Eeman</p>
+     
     </footer>
 
 </div>
@@ -807,7 +807,7 @@
     const dietIdeasLoader = document.getElementById('dietIdeasLoader');
     const dietIdeasOutput = document.getElementById('dietIdeasOutput');
 
-    const apiKey = ""; // Intentionally empty, Canvas will provide it.
+    const apiKey = "AIzaSyCTyBJ5dQZoWWgB14Wjd0l7heigxDRT-qs"; // API Key updated here
 
     async function callGeminiAPI(prompt, outputElement, loaderElement, buttonElement) {
         loaderElement.classList.remove('hidden');
