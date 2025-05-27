@@ -1,1 +1,1459 @@
 
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ulcerative Colitis: A Comprehensive Infographic</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* Minimalist Green-Accented Aesthetic */
+
+body {
+
+font-family: 'Inter', sans-serif;
+
+background-color: #FDFDFD; /* Off-white background */
+
+color: #262626; /* Very dark gray for body text (near black) */
+
+-webkit-font-smoothing: antialiased;
+
+-moz-osx-font-smoothing: grayscale;
+
+line-height: 1.65;
+
+}
+
+.main-content-area {
+
+max-width: 720px; /* Narrower content column */
+
+margin: 0 auto;
+
+padding: 3rem 1.5rem; /* Generous vertical padding */
+
+}
+
+.content-section {
+
+margin-bottom: 4rem; /* Increased space between sections */
+
+padding-bottom: 2rem;
+
+border-bottom: 1px solid #E5E5E5; /* Light gray divider */
+
+}
+
+.content-section:last-child {
+
+border-bottom: none;
+
+margin-bottom: 0;
+
+}
+
+.chart-container {
+
+position: relative;
+
+width: 100%;
+
+max-width: 500px;
+
+margin: 1.5rem auto;
+
+height: 280px;
+
+max-height: 350px;
+
+}
+
+h1 { /* Main Page Title */
+
+color: #1A1A1A;
+
+font-weight: 700;
+
+font-size: 2.75rem; /* Large */
+
+line-height: 1.2;
+
+letter-spacing: -0.03em;
+
+margin-bottom: 1rem;
+
+text-align: center;
+
+}
+
+h2 { /* Section Titles */
+
+color: #16A34A; /* Green 600 for section titles */
+
+font-weight: 600;
+
+font-size: 1.75rem; /* Slightly smaller than previous h2 */
+
+line-height: 1.3;
+
+margin-bottom: 1.5rem;
+
+letter-spacing: -0.015em;
+
+}
+
+h3 { /* Sub-section Titles / Card-like Titles */
+
+color: #1A1A1A;
+
+font-weight: 600;
+
+font-size: 1.25rem;
+
+line-height: 1.4;
+
+margin-bottom: 0.75rem;
+
+}
+
+h4 { /* Smaller headings */
+
+color: #404040; /* Darker Gray */
+
+font-weight: 500;
+
+font-size: 1rem;
+
+margin-bottom: 0.5rem;
+
+}
+
+.highlight-stat { /* Large number display */
+
+color: #16A34A; /* Green 600 */
+
+font-weight: 700;
+
+font-size: 2.5rem;
+
+line-height: 1;
+
+display: block;
+
+margin: 0.5rem 0;
+
+}
+
+.page-subtitle {
+
+color: #525252; /* Medium Gray */
+
+font-size: 1.125rem;
+
+line-height: 1.6;
+
+margin-bottom: 3rem;
+
+text-align: center;
+
+max-width: 600px;
+
+margin-left: auto;
+
+margin-right: auto;
+
+}
+
+.text-block { /* General paragraph text */
+
+color: #3F3F46; /* Zinc 700 */
+
+font-size: 0.95rem;
+
+margin-bottom: 1rem;
+
+}
+
+.visualization-context-text { /* Text explaining charts/diagrams */
+
+color: #737373; /* Gray 500 */
+
+font-size: 0.8rem;
+
+line-height: 1.5;
+
+margin-top: 0.5rem;
+
+text-align: center;
+
+}
+
+.diagram-item { /* For text-based diagrams like flowchart steps */
+
+background-color: #F0FDF4; /* Very light green */
+
+border: 1px solid #BBF7D0; /* Light green border */
+
+color: #15803D; /* Darker Green text */
+
+padding: 0.6rem 0.9rem;
+
+border-radius: 0.375rem;
+
+text-align: center;
+
+font-weight: 500;
+
+font-size: 0.85rem;
+
+margin-bottom: 0.5rem;
+
+}
+
+.diagram-arrow {
+
+font-size: 1.25rem;
+
+color: #A3A3A3; /* Medium Gray arrow */
+
+margin: 0.25rem 0;
+
+text-align: center;
+
+}
+
+.gemini-feature-section {
+
+background-color: #FAFAFA; /* Slightly off-white */
+
+border: 1px solid #E5E5E5;
+
+border-radius: 0.375rem;
+
+padding: 1.5rem;
+
+margin-top: 2rem;
+
+}
+
+.gemini-input {
+
+border: 1px solid #D4D4D4; /* Gray 300 */
+
+border-radius: 0.25rem;
+
+padding: 0.5rem 0.75rem;
+
+width: 100%;
+
+margin-bottom: 0.75rem;
+
+font-size: 0.9rem;
+
+color: #262626;
+
+background-color: #FFFFFF;
+
+}
+
+.gemini-input:focus {
+
+outline: none;
+
+border-color: #16A34A; /* Green 600 for focus */
+
+box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+
+}
+
+.gemini-button {
+
+background-color: #16A34A; /* Green 600 */
+
+color: #FFFFFF;
+
+padding: 0.5rem 1rem;
+
+border-radius: 0.25rem;
+
+font-weight: 500;
+
+font-size: 0.9rem;
+
+transition: background-color 0.2s ease-in-out;
+
+width: 100%;
+
+}
+
+.gemini-button:hover {
+
+background-color: #15803D; /* Darker Green 700 */
+
+}
+
+.gemini-output {
+
+margin-top: 1rem;
+
+padding: 0.75rem;
+
+background-color: #FDFDFD;
+
+border-radius: 0.25rem;
+
+border: 1px solid #E5E5E5;
+
+min-height: 40px;
+
+white-space: pre-wrap;
+
+font-size: 0.85rem;
+
+line-height: 1.6;
+
+color: #3F3F46;
+
+}
+
+.loading-spinner {
+
+border: 2px solid #E5E5E5;
+
+border-top: 2px solid #16A34A; /* Green 600 */
+
+border-radius: 50%;
+
+width: 20px;
+
+height: 20px;
+
+animation: spin 0.8s linear infinite;
+
+margin: 1rem auto;
+
+}
+
+@keyframes spin {
+
+0% { transform: rotate(0deg); }
+
+100% { transform: rotate(360deg); }
+
+}
+
+.disclaimer-text {
+
+font-size: 0.75rem; /* Smaller */
+
+color: #EF4444; /* Red 500 for standard warning */
+
+margin-top: 0.75rem;
+
+text-align: center;
+
+font-weight: 400;
+
+}
+
+.list-disc {
+
+padding-left: 1.25rem;
+
+font-size: 0.9rem;
+
+list-style-type: disc;
+
+}
+
+.list-disc > li {
+
+margin-bottom: 0.375rem;
+
+color: #3F3F46;
+
+}
+
+.list-disc > li::marker {
+
+color: #16A34A; /* Green marker */
+
+}
+
+.footer-text {
+
+font-size: 0.8rem;
+
+color: #A3A3A3; /* Lighter gray for footer */
+
+text-align: center;
+
+padding-top: 2rem;
+
+}
+
+.citation {
+
+font-size: 0.7rem;
+
+color: #BDBDBD;
+
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="main-content-area">
+
+
+
+<header class="mb-12">
+
+<h1>Navigating Ulcerative Colitis</h1>
+
+<p class="page-subtitle">A Comprehensive Infographic on Understanding and Managing the Condition</p>
+
+</header>
+
+
+
+<section id="overview" class="content-section">
+
+<h2>Ulcerative Colitis: An Overview</h2>
+
+<p class="text-block">Ulcerative colitis (UC) is a chronic inflammatory bowel disease (IBD) affecting the large intestine. It causes inflammation and ulcers in the colon and rectum, leading to various symptoms and requiring long-term management.</p>
+
+<div class="text-center my-6">
+
+<p class="text-block text-sm">Estimated Number of People Affected in the United States:</p>
+
+<span class="highlight-stat">~1 Million</span>
+
+<p class="visualization-context-text mt-1">This highlights the significant prevalence of UC. <span class="citation">[1]</span></p>
+
+</div>
+
+</section>
+
+
+
+<section id="understanding" class="content-section">
+
+<h2>Understanding the Condition</h2>
+
+<p class="text-block">UC is classified by the location and extent of inflammation. Understanding the type helps tailor treatment and predict potential complications.</p>
+
+
+<div>
+
+<h3>Types of Ulcerative Colitis</h3>
+
+<p class="visualization-context-text mb-2">UC primarily affects the innermost lining of the large intestine.</p>
+
+<ul class="list-disc space-y-1 mb-4">
+
+<li><strong>Ulcerative Proctitis:</strong> Inflammation confined to the rectum. <span class="citation">[1, 6]</span></li>
+
+<li><strong>Left-Sided Colitis:</strong> Inflammation extends from the rectum up the left side of the colon. <span class="citation">[1, 6]</span></li>
+
+<li><strong>Extensive Colitis (Pancolitis):</strong> Inflammation affects the entire colon. <span class="citation">[1, 6]</span></li>
+
+</ul>
+
+<div class="mt-3 p-3 border border-slate-200 rounded-md bg-slate-50">
+
+<h4 class="text-center text-sm font-medium text-green-700 mb-2">Affected Colon Regions (Simplified)</h4>
+
+<div class="space-y-1.5 text-xs">
+
+<div class="diagram-item"><strong>Proctitis:</strong> Rectum Only</div>
+
+<div class="diagram-item"><strong>Left-Sided:</strong> Rectum, Sigmoid, Descending Colon</div>
+
+<div class="diagram-item"><strong>Extensive/Pancolitis:</strong> Entire Colon</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="mt-8">
+
+<h3>Who is at Risk?</h3>
+
+<div class="chart-container">
+
+<canvas id="riskFactorAgeChart"></canvas>
+
+</div>
+
+<p class="visualization-context-text">Diagnosis commonly occurs before age 30. <span class="citation">[1, 2, 4]</span></p>
+
+<ul class="list-disc space-y-1 text-sm mt-2">
+
+<li><strong>Ethnicity:</strong> More common in white individuals. <span class="citation">[1, 10]</span></li>
+
+<li><strong>Family History:</strong> A first-degree relative with UC increases risk. <span class="citation">[1, 4, 11]</span></li>
+
+</ul>
+
+</div>
+
+
+
+<div class="mt-8">
+
+<h3>Prevalence of Ulcerative Proctitis</h3>
+
+<div class="chart-container">
+
+<canvas id="proctitisPrevalenceChart"></canvas>
+
+</div>
+
+<p class="visualization-context-text">Approximately one-third of all UC cases start as ulcerative proctitis. <span class="citation">[6]</span></p>
+
+</div>
+
+</section>
+
+
+
+<section id="causes" class="content-section">
+
+<h2>The Science Behind UC: Why Does it Happen?</h2>
+
+<p class="text-block">The exact cause of UC is unknown, but it's believed to result from a complex interaction of an overactive immune system, genetic predisposition, an imbalanced gut microbiome, and environmental factors. <span class="citation">[2, 4, 12]</span></p>
+
+<div>
+
+<h3 class="mb-2">Key Contributing Factors:</h3>
+
+<ul class="list-disc space-y-1.5 text-sm">
+
+<li><strong>Overactive Immune System.</strong> <span class="citation">[1, 13]</span></li>
+
+<li><strong>Genetic Links.</strong> <span class="citation">[3, 10, 11]</span></li>
+
+<li><strong>Gut Microbiome Imbalance (Dysbiosis).</strong> <span class="citation">[2, 12]</span></li>
+
+<li><strong>Environmental Triggers.</strong> <span class="citation">[1, 3, 14, 22]</span></li>
+
+</ul>
+
+</div>
+
+<div class="mt-4 p-3 border border-slate-200 rounded-md bg-slate-50">
+
+<h4 class="text-center text-sm font-medium text-green-700 mb-2">Conceptual Interplay of Factors</h4>
+
+<div class="flex flex-col items-center space-y-1">
+
+<div class="diagram-item w-full max-w-xs">Genetics</div>
+
+<div class="diagram-arrow">↓</div>
+
+<div class="diagram-item w-full max-w-xs">Immune System Dysregulation</div>
+
+<div class="diagram-arrow">↓</div>
+
+<div class="flex space-x-2 w-full max-w-xs">
+
+<div class="diagram-item flex-1">Microbiome</div>
+
+<div class="diagram-item flex-1">Environment</div>
+
+</div>
+
+<div class="diagram-arrow">↓</div>
+
+<div class="diagram-item w-full max-w-xs" style="border-color: #F87171; background-color:rgba(248,113,113,0.05); color: #B91C1C;">Ulcerative Colitis Development</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="symptoms" class="content-section">
+
+<h2>Recognizing the Signs: Symptoms of UC</h2>
+
+<p class="text-block">UC symptoms vary depending on the severity and location of inflammation.</p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+<div>
+
+<h3>Common Intestinal Symptoms <span class="citation">[1, 12, 25]</span></h3>
+
+<ul class="list-disc space-y-1">
+
+<li>Diarrhea (often with blood/pus)</li>
+
+<li>Rectal bleeding</li>
+
+<li>Abdominal pain & cramping</li>
+
+<li>Rectal pain & Urgency</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>General Well-being Symptoms <span class="citation">[1, 12, 25]</span></h3>
+
+<ul class="list-disc space-y-1">
+
+<li>Fatigue</li>
+
+<li>Weight loss & loss of appetite</li>
+
+<li>Fever & Anemia</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="mt-6">
+
+<h3 class="text-center">Extraintestinal Manifestations (EIMs)</h3>
+
+<p class="visualization-context-text mb-2">UC can affect other parts of the body. <span class="citation">[3, 29, 30, 31]</span></p>
+
+<div class="chart-container">
+
+<canvas id="eimPrevalenceChart"></canvas>
+
+</div>
+
+<p class="visualization-context-text mt-1">Arthritis is the most frequent EIM. <span class="citation">[30, 31, 32]</span></p>
+
+</div>
+
+</section>
+
+
+
+<section id="diagnosis" class="content-section">
+
+<h2>The Path to Diagnosis</h2>
+
+<p class="text-block">Diagnosing UC involves multiple steps to confirm inflammation and rule out other conditions. <span class="citation">[1, 41, 42, 43]</span></p>
+
+<h3 class="mb-2">Key Diagnostic Steps:</h3>
+
+<div class="space-y-2">
+
+<div class="diagram-item">Medical History & Physical Exam</div>
+
+<div class="diagram-arrow text-center">↓</div>
+
+<div class="diagram-item">Blood Tests & Stool Analysis</div>
+
+<div class="diagram-arrow text-center">↓</div>
+
+<div class="diagram-item">Endoscopy (Colonoscopy/Sigmoidoscopy)</div>
+
+<div class="diagram-arrow text-center">↓</div>
+
+<div class="diagram-item" style="border-color: #34D399; background-color:rgba(52,211,153,0.05); color: #047857;">Biopsy & Confirmation</div>
+
+</div>
+
+<p class="visualization-context-text mt-2">Endoscopy with biopsy is the gold standard. <span class="citation">[1, 43, 48]</span></p>
+
+</section>
+
+
+
+<section id="treatment" class="content-section">
+
+<h2>Treatment Landscape for UC</h2>
+
+<p class="text-block">Treatment aims to induce and maintain remission, improve quality of life, and prevent complications. <span class="citation">[5, 51, 52, 53, 54]</span></p>
+
+
+
+<div>
+
+<h3 class="mb-2">Medication Categories</h3>
+
+<div class="space-y-1 text-xs">
+
+<div class="diagram-item" style="border-color: #06D6A0; background-color: rgba(6, 214, 160, 0.05);">Small Molecules (JAK Inhibitors, S1P Modulators)</div>
+
+<div class="diagram-item" style="border-color: #118AB2; background-color: rgba(17, 138, 178, 0.05);">Biologic Therapies</div>
+
+<div class="diagram-item" style="border-color: #FFD166; background-color: rgba(255, 209, 102, 0.05);">Immunomodulators</div>
+
+<div class="diagram-item" style="border-color: #FF6B6B; background-color: rgba(255, 107, 107, 0.05);">Corticosteroids (For Flares)</div>
+
+<div class="diagram-item" style="border-color: #073B4C; background-color: rgba(7, 59, 76, 0.05); color: #073B4C;">Aminosalicylates (5-ASAs)</div>
+
+</div>
+
+<p class="visualization-context-text mt-1">Medication choice depends on severity and location. <span class="citation">[43, 50, 70]</span></p>
+
+</div>
+
+
+
+<div class="mt-6">
+
+<h3 class="text-center">Corticosteroid Efficacy & Challenges</h3>
+
+<div class="chart-container">
+
+<canvas id="steroidEfficacyChart"></canvas>
+
+</div>
+
+<p class="visualization-context-text mt-1">Effective for flares but not for long-term use. <span class="citation">[61, 62, 64]</span></p>
+
+</div>
+
+
+<div class="gemini-feature-section">
+
+<h3 class="text-center mb-2">✨ Ask Your Doctor: Question Generator</h3>
+
+<p class="visualization-context-text text-center mb-3">Prepare for your doctor's appointment.</p>
+
+<input type="text" id="doctorQuestionTopic" class="gemini-input" placeholder="E.g., 'Side effects of medication'">
+
+<button id="generateDoctorQuestionsBtn" class="gemini-button">Generate Questions</button>
+
+<div id="doctorQuestionsLoader" class="hidden loading-spinner"></div>
+
+<div id="doctorQuestionsOutput" class="gemini-output mt-3 hidden"></div>
+
+<p class="disclaimer-text">This tool provides general question suggestions, not medical advice.</p>
+
+</div>
+
+
+
+<div class="mt-6">
+
+<h3 class="text-center">Surgical Options</h3>
+
+<p class="visualization-context-text">Surgery may be needed for 1/4 to 1/3 of UC patients. <span class="citation">[43, 51, 88]</span></p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 text-sm">
+
+<div>
+
+<h4 class="text-green-700">When is Surgery Considered? <span class="citation">[43, 85]</span></h4>
+
+<ul class="list-disc">
+
+<li>Life-threatening complications</li>
+
+<li>Failure of medical therapy</li>
+
+<li>Cancer or high-grade dysplasia</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4 class="text-green-700">Common Surgical Procedures:</h4>
+
+<ul class="list-disc">
+
+<li>IPAA (J-Pouch) <span class="citation">[88, 90]</span></li>
+
+<li>Proctocolectomy with End Ileostomy <span class="citation">[50, 86]</span></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="living" class="content-section">
+
+<h2>Living with UC: Diet & Lifestyle</h2>
+
+<p class="text-block">Diet and lifestyle play key roles in symptom management and overall well-being. <span class="citation">[1, 22, 99, 114]</span></p>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+<div>
+
+<h3>Dietary Guidance <span class="citation">[99, 101]</span></h3>
+
+<h4 class="text-green-700 mt-2">During Remission:</h4>
+
+<ul class="list-disc text-xs"><li>Balanced, nutrient-rich diet.</li></ul>
+
+<h4 class="text-red-700 mt-1">During Flares:</h4>
+
+<ul class="list-disc text-xs"><li>Low-fiber/low-residue, soft, bland foods.</li></ul>
+
+</div>
+
+<div>
+
+<h3>Lifestyle & Self-Care</h3>
+
+<ul class="list-disc space-y-1">
+
+<li>Stress Management <span class="citation">[1, 114, 116]</span></li>
+
+<li>Regular Exercise <span class="citation">[115, 120]</span></li>
+
+<li>Adequate Sleep & Medication Adherence</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="gemini-feature-section">
+
+<h3 class="text-center mb-2">✨ Personalized Diet Ideas</h3>
+
+<p class="visualization-context-text text-center mb-3">Get general meal ideas. Not a prescribed diet plan.</p>
+
+<textarea id="dietPreferences" class="gemini-input h-24" placeholder="E.g., 'Low-lactose breakfast ideas'"></textarea>
+
+<button id="generateDietIdeasBtn" class="gemini-button">Get Diet Ideas</button>
+
+<div id="dietIdeasLoader" class="hidden loading-spinner"></div>
+
+<div id="dietIdeasOutput" class="gemini-output mt-3 hidden"></div>
+
+<p class="disclaimer-text">General dietary suggestions, not medical advice. Consult a professional.</p>
+
+</div>
+
+
+
+<div class="mt-6">
+
+<h3 class="text-center">Nutritional Supplements</h3>
+
+<p class="visualization-context-text mb-2">Deficiencies are common. Consult your doctor. <span class="citation">[17, 84, 106]</span></p>
+
+<div class="chart-container">
+
+<canvas id="commonDeficienciesChart"></canvas>
+
+</div>
+
+<p class="visualization-context-text mt-1">Iron deficiency is very common. <span class="citation">[17, 84]</span></p>
+
+</div>
+
+</section>
+
+
+
+<footer class="footer-text">
+
+<p>This infographic provides general information and is not a substitute for professional medical advice. Always consult with a qualified healthcare provider.</p>
+
+<p class="mt-1">AI-generated content is for informational purposes only.</p>
+
+</footer>
+
+
+
+</div>
+
+
+
+<script>
+
+Chart.defaults.font.family = 'Inter';
+
+Chart.defaults.color = '#525252'; // Neutral 500 for chart text
+
+
+
+// Green-Accented Monochromatic Chart Palette
+
+const GREEN_CHART_COLORS = {
+
+primaryGreenDark: '#15803D', // Green 700
+
+primaryGreenMedium: '#16A34A', // Green 600
+
+primaryGreenLight: '#22C55E', // Green 500
+
+accentGreen: '#86EFAC', // Green 300 (lighter accent)
+
+neutralLight: '#F5F5F5', // Neutral 100 (for backgrounds in mixed charts)
+
+neutralMedium: '#A3A3A3' // Neutral 400 (for grid lines, secondary text)
+
+};
+
+
+
+function wrapLabel(str, maxWidth) {
+
+if (!str) return '';
+
+if (Array.isArray(str)) return str;
+
+const strToString = String(str);
+
+if (strToString.length <= maxWidth) return strToString;
+
+
+const words = strToString.split(' ');
+
+let currentLine = '';
+
+const lines = [];
+
+for (const word of words) {
+
+if ((currentLine + word).length <= maxWidth || currentLine.length === 0) {
+
+currentLine += word + ' ';
+
+} else {
+
+lines.push(currentLine.trim());
+
+currentLine = word + ' ';
+
+}
+
+}
+
+lines.push(currentLine.trim());
+
+return lines.filter(line => line.length > 0);
+
+}
+
+
+
+const tooltipTitleCallback = function(tooltipItems) {
+
+const item = tooltipItems[0];
+
+let label = item.chart.data.labels[item.dataIndex];
+
+if (Array.isArray(label)) return label.join(' ');
+
+return String(label);
+
+};
+
+
+const commonChartOptions = {
+
+responsive: true,
+
+maintainAspectRatio: false,
+
+plugins: {
+
+legend: {
+
+position: 'bottom',
+
+labels: {
+
+font: { size: 10, family: 'Inter' },
+
+color: GREEN_CHART_COLORS.neutralMedium,
+
+boxWidth: 10,
+
+padding: 10
+
+}
+
+},
+
+tooltip: {
+
+callbacks: { title: tooltipTitleCallback },
+
+titleFont: { family: 'Inter', weight: '600', size: 12 },
+
+bodyFont: { family: 'Inter', size: 11 },
+
+backgroundColor: 'rgba(26, 26, 26, 0.85)',
+
+titleColor: '#FFFFFF',
+
+bodyColor: '#FAFAFA',
+
+padding: 8,
+
+cornerRadius: 3,
+
+borderColor: 'rgba(255,255,255,0.1)',
+
+borderWidth: 1
+
+}
+
+},
+
+scales: {
+
+y: {
+
+beginAtZero: true,
+
+ticks: { font: { size: 9, family: 'Inter' }, color: GREEN_CHART_COLORS.neutralMedium },
+
+grid: { color: '#E5E5E5' }
+
+},
+
+x: {
+
+ticks: {
+
+font: { size: 9, family: 'Inter' },
+
+color: GREEN_CHART_COLORS.neutralMedium,
+
+callback: function(value, index, values) {
+
+const label = this.getLabelForValue(value);
+
+return wrapLabel(label, 10);
+
+}
+
+},
+
+grid: { display: false }
+
+}
+
+}
+
+};
+
+
+
+// Chart initializations
+
+if (document.getElementById('riskFactorAgeChart')) {
+
+new Chart(document.getElementById('riskFactorAgeChart'), {
+
+type: 'bar',
+
+data: {
+
+labels: ['15-30 years', 'Mid-30s', wrapLabel('>60 years', 10)],
+
+datasets: [{
+
+label: 'Age of Onset',
+
+data: [60, 25, 15],
+
+backgroundColor: [GREEN_CHART_COLORS.primaryGreenMedium, GREEN_CHART_COLORS.primaryGreenLight, GREEN_CHART_COLORS.accentGreen],
+
+borderWidth: 0,
+
+borderRadius: 2,
+
+barPercentage: 0.7,
+
+categoryPercentage: 0.7
+
+}]
+
+},
+
+options: { ...commonChartOptions, indexAxis: 'y', plugins: {...commonChartOptions.plugins, legend: {display: false}} }
+
+});
+
+}
+
+
+
+if (document.getElementById('proctitisPrevalenceChart')) {
+
+new Chart(document.getElementById('proctitisPrevalenceChart'), {
+
+type: 'doughnut',
+
+data: {
+
+labels: ['Ulcerative Proctitis', 'Other UC Types'],
+
+datasets: [{
+
+label: 'Prevalence',
+
+data: [33, 67],
+
+backgroundColor: [GREEN_CHART_COLORS.primaryGreenMedium, GREEN_CHART_COLORS.neutralLight],
+
+borderColor: '#FFFFFF',
+
+borderWidth: 2,
+
+hoverOffset: 4
+
+}]
+
+},
+
+options: { ...commonChartOptions, cutout: '70%' }
+
+});
+
+}
+
+
+if (document.getElementById('eimPrevalenceChart')) {
+
+new Chart(document.getElementById('eimPrevalenceChart'), {
+
+type: 'bar',
+
+data: {
+
+labels: [wrapLabel('Arthritis',10), wrapLabel('Skin Issues',10), wrapLabel('Eye Issues',10), wrapLabel('PSC (Liver)',10)],
+
+datasets: [{
+
+label: 'Approx. Prevalence (%)',
+
+data: [40, 20, 12, 7],
+
+backgroundColor: GREEN_CHART_COLORS.primaryGreenMedium,
+
+borderRadius: 2,
+
+borderWidth: 0,
+
+barPercentage: 0.6,
+
+categoryPercentage: 0.6
+
+}]
+
+},
+
+options: { ...commonChartOptions,
+
+scales: { ...commonChartOptions.scales, x: { ...commonChartOptions.scales.x, ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 }}},
+
+plugins: {...commonChartOptions.plugins, legend: {display: true, position: 'top', labels: {...commonChartOptions.plugins.legend.labels, font: {size: 9}}}}
+
+}
+
+});
+
+}
+
+
+if (document.getElementById('steroidEfficacyChart')) {
+
+new Chart(document.getElementById('steroidEfficacyChart'), {
+
+type: 'pie',
+
+data: {
+
+labels: [wrapLabel('Complete Remission',12), wrapLabel('Partial Remission',12), wrapLabel('Steroid-Refractory',12), wrapLabel('Steroid-Dependent',12)],
+
+datasets: [{
+
+data: [54, 16, 18, 12],
+
+backgroundColor: [GREEN_CHART_COLORS.primaryGreenDark, GREEN_CHART_COLORS.primaryGreenMedium, GREEN_CHART_COLORS.primaryGreenLight, GREEN_CHART_COLORS.accentGreen],
+
+borderColor: '#FFFFFF',
+
+borderWidth: 2,
+
+hoverOffset: 4
+
+}]
+
+},
+
+options: { ...commonChartOptions }
+
+});
+
+}
+
+
+
+if (document.getElementById('commonDeficienciesChart')) {
+
+new Chart(document.getElementById('commonDeficienciesChart'), {
+
+type: 'bar',
+
+data: {
+
+labels: [wrapLabel('Iron Deficiency',12), wrapLabel('Vitamin D',10), wrapLabel('Vitamin B12',10), wrapLabel('Calcium',10)],
+
+datasets: [{
+
+label: 'Estimated Prevalence (%)',
+
+data: [76, 60, 25, 30],
+
+backgroundColor: GREEN_CHART_COLORS.primaryGreenMedium,
+
+borderRadius: 2,
+
+borderWidth: 0,
+
+barPercentage: 0.6,
+
+categoryPercentage: 0.6
+
+}]
+
+},
+
+options: { ...commonChartOptions,
+
+scales: { ...commonChartOptions.scales, x: { ...commonChartOptions.scales.x, ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 }}},
+
+plugins: {...commonChartOptions.plugins, legend: {display: true, position: 'top', labels: {...commonChartOptions.plugins.legend.labels, font: {size: 9}}}}
+
+}
+
+});
+
+}
+
+
+
+const doctorQuestionTopicInput = document.getElementById('doctorQuestionTopic');
+
+const generateDoctorQuestionsBtn = document.getElementById('generateDoctorQuestionsBtn');
+
+const doctorQuestionsLoader = document.getElementById('doctorQuestionsLoader');
+
+const doctorQuestionsOutput = document.getElementById('doctorQuestionsOutput');
+
+
+
+const dietPreferencesInput = document.getElementById('dietPreferences');
+
+const generateDietIdeasBtn = document.getElementById('generateDietIdeasBtn');
+
+const dietIdeasLoader = document.getElementById('dietIdeasLoader');
+
+const dietIdeasOutput = document.getElementById('dietIdeasOutput');
+
+
+const apiKey = "AIzaSyCTyBJ5dQZoWWgB14Wjd0l7heigxDRT-qs";
+
+
+
+async function callGeminiAPI(prompt, outputElement, loaderElement, buttonElement) {
+
+loaderElement.classList.remove('hidden');
+
+outputElement.classList.add('hidden');
+
+outputElement.textContent = '';
+
+buttonElement.disabled = true;
+
+buttonElement.classList.add('opacity-75', 'cursor-not-allowed');
+
+
+
+let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+
+const payload = { contents: chatHistory };
+
+const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+
+
+try {
+
+const response = await fetch(apiUrl, {
+
+method: 'POST',
+
+headers: { 'Content-Type': 'application/json' },
+
+body: JSON.stringify(payload)
+
+});
+
+
+
+if (!response.ok) {
+
+const errorData = await response.json();
+
+throw new Error(`API request failed with status ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
+
+}
+
+
+
+const result = await response.json();
+
+
+if (result.candidates && result.candidates.length > 0 &&
+
+result.candidates[0].content && result.candidates[0].content.parts &&
+
+result.candidates[0].content.parts.length > 0) {
+
+const text = result.candidates[0].content.parts[0].text;
+
+outputElement.textContent = text;
+
+} else if (result.promptFeedback && result.promptFeedback.blockReason) {
+
+outputElement.textContent = `The request was blocked. Reason: ${result.promptFeedback.blockReason}. Please try modifying your input.`;
+
+} else {
+
+outputElement.textContent = 'Could not retrieve information. The response from the AI was not in the expected format.';
+
+}
+
+} catch (error) {
+
+outputElement.textContent = `An error occurred: ${error.message}. Please try again.`;
+
+} finally {
+
+loaderElement.classList.add('hidden');
+
+outputElement.classList.remove('hidden');
+
+buttonElement.disabled = false;
+
+buttonElement.classList.remove('opacity-75', 'cursor-not-allowed');
+
+}
+
+}
+
+
+
+if (generateDoctorQuestionsBtn) {
+
+generateDoctorQuestionsBtn.addEventListener('click', () => {
+
+const topic = doctorQuestionTopicInput.value.trim();
+
+if (!topic) {
+
+doctorQuestionsOutput.textContent = 'Please enter a topic.';
+
+doctorQuestionsOutput.classList.remove('hidden');
+
+return;
+
+}
+
+const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC).
+
+Generate a list of 5-7 concise questions that a patient with Ulcerative Colitis could ask their doctor about the following topic: "${topic}".
+
+The questions should be clear, focused, and aimed at helping the patient better understand their condition, treatment options, potential side effects, or long-term management related to the specified topic.
+
+Format the output as a numbered list.
+
+IMPORTANT: Do NOT provide any medical advice, diagnoses, or treatment recommendations. Only generate questions. Start the response directly with the first question.`;
+
+callGeminiAPI(prompt, doctorQuestionsOutput, doctorQuestionsLoader, generateDoctorQuestionsBtn);
+
+});
+
+}
+
+
+
+if (generateDietIdeasBtn) {
+
+generateDietIdeasBtn.addEventListener('click', () => {
+
+const preferences = dietPreferencesInput.value.trim();
+
+if (!preferences) {
+
+dietIdeasOutput.textContent = 'Please enter your dietary preferences or needs.';
+
+dietIdeasOutput.classList.remove('hidden');
+
+return;
+
+}
+
+const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC).
+
+I am looking for general meal or food ideas that are often considered suitable for people with Ulcerative Colitis, keeping in mind the following preferences/restrictions: "${preferences}".
+
+Please provide 3-4 simple meal or snack ideas. For each idea, briefly explain why it might be suitable (e.g., "easy to digest," "low in common irritants").
+
+Format the output clearly, perhaps using bullet points for each idea.
+
+IMPORTANT: Emphasize that these are general suggestions and NOT medical or nutritional advice. State that the user should always consult with their doctor or a registered dietitian for personalized dietary plans. Start the response directly with the meal ideas. Conclude with the disclaimer.`;
+
+callGeminiAPI(prompt, dietIdeasOutput, dietIdeasLoader, generateDietIdeasBtn);
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
