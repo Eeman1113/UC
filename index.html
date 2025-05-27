@@ -8,26 +8,27 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Calmer Green-Accented, Notion/Shadcn Inspired Aesthetic */
+        /* Calmer Blue-Accented, Notion/Shadcn Inspired Aesthetic - Enhanced Fonts & Formatting */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FFFFFF; /* White background */
-            color: #334155; /* Slate 700 for body text */
+            background-color: #FFFFFF; 
+            color: #1E293B; /* Slate 800 for richer body text */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            line-height: 1.7; /* Increased for readability */
+            line-height: 1.75; /* Slightly increased base line height */
+            font-weight: 400; /* Base weight */
         }
 
         .main-content-area {
-            max-width: 768px; /* Slightly wider for modern feel, still readable */
+            max-width: 800px; /* Slightly wider for better spacing */
             margin: 0 auto;
-            padding: 4rem 2rem; /* Generous vertical padding */
+            padding: 4.5rem 2.5rem; /* Increased padding */
         }
 
         .content-section {
-            margin-bottom: 3.5rem; /* Consistent space between sections */
-            padding-bottom: 3.5rem;
-            border-bottom: 1px solid #E2E8F0; /* Slate 200 for subtle divider */
+            margin-bottom: 4rem; /* Increased section spacing */
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #E2E8F0; 
         }
 
         .content-section:last-child {
@@ -38,176 +39,192 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 480px; /* Adjusted for content flow */
-            margin: 2rem auto; /* Increased margin */
-            height: 280px;
-            max-height: 350px;
+            max-width: 500px; /* Slightly larger max for charts */
+            margin: 2.5rem auto; /* Increased margin */
+            height: 300px; 
+            max-height: 380px;
+        }
+        .chart-container-taller {
+            height: 340px; /* Increased height */
+            max-height: 420px;
         }
 
         h1 { /* Main Page Title */
             color: #0F172A; /* Slate 900 */
-            font-weight: 600; /* Slightly less heavy */
-            font-size: 2.25rem; /* More Notion-like */
-            line-height: 1.25;
-            letter-spacing: -0.025em;
-            margin-bottom: 1rem;
+            font-weight: 700; 
+            font-size: 2.75rem; /* Enhanced size */
+            line-height: 1.15; /* Adjusted line height */
+            letter-spacing: -0.03em; /* Slightly tighter */
+            margin-bottom: 1.5rem; 
             text-align: center;
         }
 
         h2 { /* Section Titles */
-            color: #059669; /* Emerald 600 - Calmer Green Accent */
+            color: #2563EB; /* Blue 600 */
             font-weight: 600;
-            font-size: 1.5rem;
-            line-height: 1.3;
-            margin-bottom: 1.75rem; /* Increased margin */
-            letter-spacing: -0.01em;
+            font-size: 1.875rem; /* Enhanced size */
+            line-height: 1.25;
+            margin-bottom: 2.25rem; /* Increased spacing after */
+            letter-spacing: -0.015em;
         }
 
-        h3 { /* Sub-section Titles / Card-like Titles */
+        h3 { /* Sub-section Titles */
             color: #1E293B; /* Slate 800 */
             font-weight: 600;
-            font-size: 1.25rem;
-            line-height: 1.4;
-            margin-bottom: 1rem;
+            font-size: 1.375rem; /* Enhanced size */
+            line-height: 1.35;
+            margin-bottom: 1.5rem; /* Increased spacing after */
         }
 
         h4 { /* Smaller headings */
-            color: #334155; /* Slate 700 */
-            font-weight: 500;
-            font-size: 1rem;
-            margin-bottom: 0.625rem;
+            color: #1D4ED8; /* Blue 700 */
+            font-weight: 600; /* Thicker */
+            font-size: 1.1rem; /* Enhanced size */
+            margin-bottom: 0.75rem; /* Increased spacing after */
+        }
+        h4.text-slate-700 {
+             color: #334155; 
         }
 
-        .highlight-stat { /* Large number display */
-            color: #10B981; /* Emerald 500 */
+        .highlight-stat {
+            color: #3B82F6; /* Blue 500 */
             font-weight: 700;
-            font-size: 3rem; /* Made larger for impact */
+            font-size: 3.25rem; /* Enhanced size */
             line-height: 1;
             display: block;
-            margin: 0.75rem 0;
+            margin: 1rem 0; /* Adjusted margin */
         }
 
         .page-subtitle {
-            color: #64748B; /* Slate 500 */
-            font-size: 1.125rem;
-            line-height: 1.6;
-            margin-bottom: 3.5rem; /* Increased space */
+            color: #475569; /* Slate 600 for better readability */
+            font-size: 1.15rem; /* Slightly larger */
+            line-height: 1.65;
+            margin-bottom: 4rem; /* Increased spacing */
             text-align: center;
-            max-width: 640px;
+            max-width: 680px; /* Adjusted width */
             margin-left: auto;
             margin-right: auto;
         }
 
-        .text-block { /* General paragraph text */
+        .text-block {
+            color: #1E293B; /* Slate 800 for richer body text */
+            font-size: 1.05rem; /* Slightly larger base text */
+            margin-bottom: 1.5rem; /* Increased spacing */
+            font-weight: 400;
+        }
+        .text-block strong {
+            color: #0F172A; /* Slate 900 for strong emphasis */
+            font-weight: 600; /* Semibold for strong */
+        }
+
+        .visualization-context-text {
             color: #475569; /* Slate 600 */
-            font-size: 1rem; /* Standardized to 1rem */
-            margin-bottom: 1.25rem;
-        }
-
-        .visualization-context-text { /* Text explaining charts/diagrams */
-            color: #64748B; /* Slate 500 */
-            font-size: 0.875rem; /* Slightly larger for readability */
-            line-height: 1.5;
-            margin-top: 0.75rem;
+            font-size: 0.9rem; /* Slightly larger */
+            line-height: 1.55;
+            margin-top: 1rem; /* Increased spacing */
             text-align: center;
         }
 
-        .diagram-item { /* For text-based diagrams like flowchart steps */
-            background-color: #F8FAFC; /* Slate 50 */
-            border: 1px solid #E2E8F0; /* Slate 200 */
-            color: #334155; /* Slate 700 */
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem; /* md */
+        .diagram-item {
+            background-color: #F8FAFC; 
+            border: 1px solid #E2E8F0; 
+            color: #1E293B; /* Darker text for diagram items */
+            padding: 0.875rem 1.125rem; /* Increased padding */
+            border-radius: 0.5rem; 
             text-align: center;
-            font-weight: 500;
-            font-size: 0.875rem;
-            margin-bottom: 0.625rem;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+            font-weight: 500; /* Medium weight */
+            font-size: 0.9rem; /* Slightly larger */
+            margin-bottom: 0.75rem; 
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0,0,0,0.03); /* Softer shadow */
         }
-        /* Specific diagram item for UC development - warning color */
-        .diagram-item.uc-development-warning {
-            border-color: #F43F5E; /* Rose 500 */
-            background-color: #FFF1F2; /* Rose 50 */
-            color: #BE123C; /* Rose 700 */
+        .diagram-item.uc-development-warning { 
+            border-color: #D97706; 
+            background-color: #FFFBEB; 
+            color: #B45309; 
+        }
+         .diagram-item.diagnosis-confirmed { 
+            border-color: #3B82F6; 
+            background-color: #EFF6FF; 
+            color: #1D4ED8; 
         }
 
         .diagram-arrow {
-            font-size: 1.25rem;
-            color: #CBD5E1; /* Slate 300 */
-            margin: 0.375rem 0;
+            font-size: 1.375rem; /* Slightly larger arrow */
+            color: #CBD5E1; 
+            margin: 0.5rem 0; /* Adjusted margin */
             text-align: center;
         }
 
         .gemini-feature-section {
-            background-color: #F8FAFC; /* Slate 50 */
-            border: 1px solid #E2E8F0; /* Slate 200 */
-            border-radius: 0.75rem; /* lg */
-            padding: 2rem; /* Increased padding */
-            margin-top: 2.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            background-color: #F8FAFC; 
+            border: 1px solid #E2E8F0; 
+            border-radius: 0.75rem; 
+            padding: 2.5rem; /* Increased padding */
+            margin-top: 3rem; /* Increased spacing */
+            box-shadow: 0 6px 12px -2px rgb(0 0 0 / 0.05), 0 3px 7px -3px rgb(0 0 0 / 0.05); /* Softer, more spread shadow */
         }
 
         .gemini-input {
-            border: 1px solid #CBD5E1; /* Slate 300 */
-            border-radius: 0.375rem; /* md */
-            padding: 0.625rem 0.875rem;
+            border: 1px solid #CBD5E1; 
+            border-radius: 0.375rem; 
+            padding: 0.75rem 1rem; /* Increased padding */
             width: 100%;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            color: #334155; /* Slate 700 */
+            margin-bottom: 1.25rem; /* Increased spacing */
+            font-size: 1rem; /* Larger input text */
+            color: #1E293B; 
             background-color: #FFFFFF;
             transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
         .gemini-input:focus {
             outline: none;
-            border-color: #10B981; /* Emerald 500 */
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); /* Emerald 500 with opacity */
+            border-color: #3B82F6; 
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Slightly stronger focus shadow */
         }
 
         .gemini-button {
-            background-color: #10B981; /* Emerald 500 */
+            background-color: #3B82F6; 
             color: #FFFFFF;
-            padding: 0.625rem 1.25rem; /* Adjusted padding */
-            border-radius: 0.375rem; /* md */
-            font-weight: 500;
-            font-size: 0.95rem;
+            padding: 0.875rem 1.5rem; /* Increased padding */
+            border-radius: 0.375rem; 
+            font-weight: 600; /* Semibold for button text */
+            font-size: 1rem; /* Larger button text */
             transition: background-color 0.2s ease-in-out;
             width: 100%;
-            border: none; /* Remove default border */
+            border: none;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
         }
 
         .gemini-button:hover {
-            background-color: #059669; /* Emerald 600 */
+            background-color: #2563EB; 
         }
         .gemini-button:disabled, .gemini-button.opacity-75 {
-            background-color: #A7F3D0; /* Lighter Emerald for disabled state */
+            background-color: #93C5FD; 
             cursor: not-allowed;
             opacity: 0.75;
         }
 
-
         .gemini-output {
-            margin-top: 1.25rem;
-            padding: 1rem;
+            margin-top: 1.5rem; /* Increased spacing */
+            padding: 1.25rem; /* Increased padding */
             background-color: #FFFFFF;
-            border-radius: 0.375rem; /* md */
-            border: 1px solid #E2E8F0; /* Slate 200 */
-            min-height: 40px;
+            border-radius: 0.375rem; 
+            border: 1px solid #E2E8F0; 
+            min-height: 45px; /* Slightly taller */
             white-space: pre-wrap;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #475569; /* Slate 600 */
+            font-size: 0.95rem; /* Larger output text */
+            line-height: 1.65;
+            color: #334155; /* Slate 700 for output */
         }
 
         .loading-spinner {
-            border: 3px solid #E2E8F0; /* Slate 200 */
-            border-top: 3px solid #10B981; /* Emerald 500 */
+            border: 3px solid #E2E8F0; 
+            border-top: 3px solid #3B82F6; 
             border-radius: 50%;
-            width: 24px; /* Slightly larger */
-            height: 24px;
+            width: 28px; /* Larger spinner */
+            height: 28px;
             animation: spin 0.8s linear infinite;
-            margin: 1.5rem auto; /* Centered with more space */
+            margin: 1.75rem auto; /* Adjusted margin */
         }
 
         @keyframes spin {
@@ -216,53 +233,54 @@
         }
 
         .disclaimer-text {
-            font-size: 0.8rem; /* Smaller */
-            color: #EF4444; /* Red 500 for standard warning - kept for visibility */
-            margin-top: 1rem;
+            font-size: 0.85rem; /* Slightly larger */
+            color: #EF4444; 
+            margin-top: 1.25rem; /* Increased spacing */
             text-align: center;
             font-weight: 400;
         }
 
         .list-disc {
-            padding-left: 1.5rem; /* Increased indent */
-            font-size: 0.95rem; /* Consistent with inputs */
-            list-style-type: disc;
+            padding-left: 1.75rem; /* Increased indent */
+            font-size: 1rem; /* Consistent with input text */
         }
 
         .list-disc > li {
-            margin-bottom: 0.5rem; /* More space between items */
-            color: #475569; /* Slate 600 */
+            margin-bottom: 0.625rem; /* Increased spacing */
+            color: #1E293B; /* Darker list text */
         }
 
         .list-disc > li::marker {
-            color: #10B981; /* Emerald 500 marker */
+            color: #3B82F6; 
         }
 
         .footer-text {
-            font-size: 0.875rem;
-            color: #94A3B8; /* Slate 400 for footer */
+            font-size: 0.9rem; /* Slightly larger */
+            color: #64748B; /* Slate 500 */
             text-align: center;
-            padding-top: 3rem; /* More space before footer */
+            padding-top: 3.5rem; /* Increased spacing */
         }
 
         .citation {
-            font-size: 0.75rem; /* Slightly larger */
-            color: #94A3B8; /* Slate 400 */
+            font-size: 0.8rem; /* Slightly larger */
+            color: #94A3B8; 
         }
 
-        /* Styles for specific medication category diagram items */
-        .med-category-item { /* Base style for medication categories */
-            padding: 0.5rem 0.75rem;
-            font-size: 0.8rem;
+        .med-category-item {
+            padding: 0.75rem 1rem; /* Increased padding */
+            font-size: 0.875rem; /* Increased font size */
             border-radius: 0.375rem;
             text-align: left;
-            color: #1E293B; /* Slate 800 for text */
+            color: #1E293B; 
+            display: flex;
+            align-items: center;
+            font-weight: 500; /* Medium weight */
         }
-        .med-cat-small-mol { background-color: #F0FDFA; border: 1px solid #A7F3D0; color: #065F46;} /* Emerald 50 bg, Emerald 200 border, Emerald 800 text */
-        .med-cat-biologic { background-color: #EFF6FF; border: 1px solid #BAE6FD; color: #1E40AF;} /* Blue 50 bg, Blue 200 border, Blue 800 text */
-        .med-cat-immunomod { background-color: #FFFBEB; border: 1px solid #FDE68A; color: #92400E;} /* Amber 50 bg, Amber 200 border, Amber 800 text */
-        .med-cat-corticosteroid { background-color: #FFF1F2; border: 1px solid #FECDD3; color: #9F1239;} /* Rose 50 bg, Rose 200 border, Rose 800 text */
-        .med-cat-aminosalicylate { background-color: #F8FAFC; border: 1px solid #E2E8F0; color: #334155;} /* Slate 50 bg, Slate 200 border, Slate 700 text */
+        .med-cat-small-mol { background-color: #DBEAFE; border: 1px solid #93C5FD; color: #1E40AF;} 
+        .med-cat-biologic { background-color: #E0E7FF; border: 1px solid #C7D2FE; color: #3730A3;} 
+        .med-cat-immunomod { background-color: #FFFBEB; border: 1px solid #FDE68A; color: #92400E;} 
+        .med-cat-corticosteroid { background-color: #F5F3FF; border: 1px solid #DDD6FE; color: #5B21B6;} 
+        .med-cat-aminosalicylate { background-color: #F8FAFC; border: 1px solid #E2E8F0; color: #334155;} 
 
     </style>
 </head>
@@ -270,176 +288,173 @@
 
 <div class="main-content-area">
 
-    <header class="mb-16"> <h1>Navigating Ulcerative Colitis</h1>
-        <p class="page-subtitle">A Comprehensive Infographic on Understanding and Managing the Condition</p>
+    <header class="mb-16">
+        <h1>Navigating Ulcerative Colitis</h1>
+        <p class="page-subtitle">A Comprehensive Infographic on Understanding and Managing This Condition</p>
     </header>
 
     <section id="overview" class="content-section">
-        <h2>Ulcerative Colitis: An Overview</h2>
-        <p class="text-block">Ulcerative colitis (UC) is a chronic inflammatory bowel disease (IBD) affecting the large intestine. It causes inflammation and ulcers in the colon and rectum, leading to various symptoms and requiring long-term management.</p>
-        <div class="text-center my-8"> <p class="text-block text-base">Estimated Number of People Affected in the United States:</p> <span class="highlight-stat">~1 Million</span>
-            <p class="visualization-context-text mt-2">This highlights the significant prevalence of UC. <span class="citation">[1]</span></p>
+        <h2>Ulcerative Colitis: A Clear Overview</h2>
+        <p class="text-block">Ulcerative colitis (UC) is a <strong>long-term (chronic) condition</strong> where the <strong>large intestine (colon and rectum) becomes inflamed</strong>. This inflammation causes tiny sores, called ulcers, to form on the lining of the colon, leading to various symptoms. Managing UC often requires ongoing medical care.</p>
+        <div class="text-center my-10"> <p class="text-block text-base">Estimated Number of People Affected in the United States:</p>
+            <span class="highlight-stat">~1 Million</span>
+            <p class="visualization-context-text mt-2">This shows that many individuals live with UC. <span class="citation">[1]</span></p>
         </div>
     </section>
 
     <section id="understanding" class="content-section">
-        <h2>Understanding the Condition</h2>
-        <p class="text-block">UC is classified by the location and extent of inflammation. Understanding the type helps tailor treatment and predict potential complications.</p>
+        <h2>Understanding Your UC: Types and Risk Factors</h2>
+        <p class="text-block">UC is categorized based on <strong>which parts of the colon are inflamed</strong> and <strong>how widespread the inflammation is</strong>. Knowing the specific type of UC helps doctors create the most effective treatment plan and foresee potential issues.</p>
 
         <div>
-            <h3>Types of Ulcerative Colitis</h3>
-            <p class="visualization-context-text mb-3">UC primarily affects the innermost lining of the large intestine.</p>
-            <ul class="list-disc space-y-1.5 mb-6"> <li><strong>Ulcerative Proctitis:</strong> Inflammation confined to the rectum. <span class="citation">[1, 6]</span></li>
-                <li><strong>Left-Sided Colitis:</strong> Inflammation extends from the rectum up the left side of the colon. <span class="citation">[1, 6]</span></li>
-                <li><strong>Extensive Colitis (Pancolitis):</strong> Inflammation affects the entire colon. <span class="citation">[1, 6]</span></li>
+            <h3>Types of Ulcerative Colitis Explained</h3>
+            <p class="visualization-context-text mb-4">The type of UC is determined by where the inflammation is located:</p>
+            <ul class="list-disc space-y-2 mb-8"> <li><strong>Ulcerative Proctitis:</strong> Inflammation is limited to the <strong>rectum</strong> (the last part of the large intestine, ending at the anus). This is often the mildest form. <span class="citation">[1, 6]</span></li>
+                <li><strong>Left-Sided Colitis (Distal UC):</strong> Inflammation starts at the rectum and extends up the <strong>left side of the colon</strong> (which includes the sigmoid and descending colon). <span class="citation">[1, 6]</span></li>
+                <li><strong>Extensive Colitis (Pancolitis):</strong> Inflammation affects the <strong>entire colon</strong>. This type can be more severe and may have more widespread symptoms. <span class="citation">[1, 6]</span></li>
             </ul>
-            <div class="mt-4 p-4 border border-slate-200 rounded-lg bg-slate-50 shadow-sm"> <h4 class="text-center text-sm font-medium text-emerald-700 mb-3">Affected Colon Regions (Simplified)</h4>
-                <div class="space-y-2 text-xs">
-                    <div class="diagram-item"><strong>Proctitis:</strong> Rectum Only</div>
-                    <div class="diagram-item"><strong>Left-Sided:</strong> Rectum, Sigmoid, Descending Colon</div>
-                    <div class="diagram-item"><strong>Extensive/Pancolitis:</strong> Entire Colon</div>
+            <div class="mt-5 p-5 border border-slate-200 rounded-lg bg-slate-50 shadow-sm"> <h4 class="text-center text-base font-medium text-blue-700 mb-4">Affected Colon Regions (Simplified View)</h4> <div class="space-y-2.5 text-sm"> <div class="diagram-item"><strong>Proctitis:</strong> Rectum Only</div>
+                    <div class="diagram-item"><strong>Left-Sided Colitis:</strong> Rectum, Sigmoid & Descending Colon</div>
+                    <div class="diagram-item"><strong>Extensive Colitis / Pancolitis:</strong> Entire Colon Affected</div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-10"> <h3>Who is at Risk?</h3>
+        <div class="mt-12"> <h3>Who Is More Likely to Develop UC?</h3>
             <div class="chart-container">
                 <canvas id="riskFactorAgeChart"></canvas>
             </div>
-            <p class="visualization-context-text">Diagnosis commonly occurs before age 30. <span class="citation">[1, 2, 4]</span></p>
-            <ul class="list-disc space-y-1.5 text-sm mt-4"> <li><strong>Ethnicity:</strong> More common in white individuals. <span class="citation">[1, 10]</span></li>
-                <li><strong>Family History:</strong> A first-degree relative with UC increases risk. <span class="citation">[1, 4, 11]</span></li>
+            <p class="visualization-context-text">UC can develop at any age, but it's most commonly diagnosed in people before the age of 30. <span class="citation">[1, 2, 4]</span></p>
+            <ul class="list-disc space-y-2 text-base mt-5"> <li><strong>Ethnicity:</strong> It's diagnosed more often in individuals of Caucasian background, especially those of Ashkenazi Jewish descent. <span class="citation">[1, 10]</span></li>
+                <li><strong>Family History:</strong> If a <strong>close relative</strong> (like a parent, sibling, or child) has UC, your risk of developing it is higher. <span class="citation">[1, 4, 11]</span></li>
             </ul>
         </div>
 
-        <div class="mt-10"> <h3>Prevalence of Ulcerative Proctitis</h3>
+        <div class="mt-12"> <h3>How UC Often Starts: Ulcerative Proctitis</h3>
             <div class="chart-container">
                 <canvas id="proctitisPrevalenceChart"></canvas>
             </div>
-            <p class="visualization-context-text">Approximately one-third of all UC cases start as ulcerative proctitis. <span class="citation">[6]</span></p>
+            <p class="visualization-context-text">For about one-third of people with UC, the condition first appears as ulcerative proctitis. <span class="citation">[6]</span></p>
         </div>
     </section>
 
     <section id="causes" class="content-section">
-        <h2>The Science Behind UC: Why Does it Happen?</h2>
-        <p class="text-block">The exact cause of UC is unknown, but it's believed to result from a complex interaction of an overactive immune system, genetic predisposition, an imbalanced gut microbiome, and environmental factors. <span class="citation">[2, 4, 12]</span></p>
+        <h2>Why Does UC Happen? Exploring Potential Causes</h2>
+        <p class="text-block">The precise cause of Ulcerative Colitis is still not completely known. However, research suggests it's a <strong>complex condition</strong> resulting from a combination of factors. Importantly, UC is <strong>not caused by specific foods you've eaten or by stress</strong>, although these factors can sometimes make symptoms worse if you already have the condition.</p>
         <div>
-            <h3 class="mb-3">Key Contributing Factors:</h3>
-            <ul class="list-disc space-y-2 text-sm"> <li><strong>Overactive Immune System.</strong> <span class="citation">[1, 13]</span></li>
-                <li><strong>Genetic Links.</strong> <span class="citation">[3, 10, 11]</span></li>
-                <li><strong>Gut Microbiome Imbalance (Dysbiosis).</strong> <span class="citation">[2, 12]</span></li>
-                <li><strong>Environmental Triggers.</strong> <span class="citation">[1, 3, 14, 22]</span></li>
+            <h3 class="mb-4">Key Factors Believed to Contribute:</h3>
+            <ul class="list-disc space-y-2.5 text-base"> <li><strong>Overactive Immune System:</strong> The body's defense system (immune system) mistakenly identifies harmless bacteria or cells in the colon as threats and attacks them, causing inflammation. <span class="citation">[1, 13]</span></li>
+                <li><strong>Genetic Factors:</strong> Having certain <strong>genes</strong> can make a person more prone to developing UC. It can run in families. <span class="citation">[3, 10, 11]</span></li>
+                <li><strong>Gut Microbiome (Gut Bacteria):</strong> An imbalance in the types and amounts of bacteria and other microorganisms living in the gut (the "gut microbiome") may play a role. <span class="citation">[2, 12]</span></li>
+                <li><strong>Environmental Influences:</strong> Various factors in the environment, which are still being researched, might trigger UC in people who are genetically predisposed. <span class="citation">[1, 3, 14, 22]</span></li>
             </ul>
         </div>
-        <div class="mt-6 p-4 border border-slate-200 rounded-lg bg-slate-50 shadow-sm"> <h4 class="text-center text-sm font-medium text-emerald-700 mb-3">Conceptual Interplay of Factors</h4>
-            <div class="flex flex-col items-center space-y-1.5">
-                <div class="diagram-item w-full max-w-sm">Genetics</div>
+        <div class="mt-8 p-5 border border-slate-200 rounded-lg bg-slate-50 shadow-sm"> <h4 class="text-center text-base font-medium text-blue-700 mb-4">How These Factors Might Interact to Cause UC</h4>
+            <div class="flex flex-col items-center space-y-2"> <div class="diagram-item w-full max-w-md">Genetic Susceptibility (Inherited Tendency)</div> <div class="diagram-arrow">↓</div>
+                <div class="diagram-item w-full max-w-md">Immune System Not Working Correctly</div>
                 <div class="diagram-arrow">↓</div>
-                <div class="diagram-item w-full max-w-sm">Immune System Dysregulation</div>
-                <div class="diagram-arrow">↓</div>
-                <div class="flex space-x-2 w-full max-w-sm">
-                    <div class="diagram-item flex-1">Microbiome</div>
-                    <div class="diagram-item flex-1">Environment</div>
+                <div class="flex space-x-3 w-full max-w-md"> <div class="diagram-item flex-1">Changes in Gut Bacteria</div>
+                    <div class="diagram-item flex-1">Environmental Triggers</div>
                 </div>
                 <div class="diagram-arrow">↓</div>
-                <div class="diagram-item uc-development-warning w-full max-w-sm">Ulcerative Colitis Development</div>
+                <div class="diagram-item uc-development-warning w-full max-w-md">Development of Ulcerative Colitis</div>
             </div>
         </div>
     </section>
 
     <section id="symptoms" class="content-section">
-        <h2>Recognizing the Signs: Symptoms of UC</h2>
-        <p class="text-block">UC symptoms vary depending on the severity and location of inflammation.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8"> <div>
-                <h3>Common Intestinal Symptoms <span class="citation">[1, 12, 25]</span></h3>
-                <ul class="list-disc space-y-1.5">
-                    <li>Diarrhea (often with blood/pus)</li>
-                    <li>Rectal bleeding</li>
-                    <li>Abdominal pain & cramping</li>
-                    <li>Rectal pain & Urgency</li>
+        <h2>Recognizing UC: Common Signs and Symptoms</h2>
+        <p class="text-block">The symptoms of Ulcerative Colitis can differ greatly from person to person. They depend on <strong>how severe the inflammation is</strong> and <strong>which part of the colon is affected</strong>. Symptoms can also come and go; periods when symptoms are active are called <strong>flare-ups</strong>, and periods with few or no symptoms are called <strong>remission</strong>.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10"> <div>
+                <h3>Common Gut-Related Symptoms <span class="citation">[1, 12, 25]</span></h3>
+                <ul class="list-disc space-y-2"> <li><strong>Diarrhea</strong>, which may contain blood, pus, or mucus</li>
+                    <li><strong>Rectal bleeding</strong> (seeing blood on toilet paper or in the stool)</li>
+                    <li><strong>Abdominal (belly) pain</strong> and cramping</li>
+                    <li><strong>Pain in the rectum</strong></li>
+                    <li><strong>Urgency</strong> (a sudden, strong need to have a bowel movement)</li>
+                    <li><strong>Tenesmus</strong> (feeling like you need to pass stool, even if your bowel is empty)</li>
                 </ul>
             </div>
             <div>
-                <h3>General Well-being Symptoms <span class="citation">[1, 12, 25]</span></h3>
-                <ul class="list-disc space-y-1.5">
-                    <li>Fatigue</li>
-                    <li>Weight loss & loss of appetite</li>
-                    <li>Fever & Anemia</li>
+                <h3>General Symptoms Affecting Well-being <span class="citation">[1, 12, 25]</span></h3>
+                <ul class="list-disc space-y-2"> <li><strong>Fatigue</strong> (feeling very tired and lacking energy)</li>
+                    <li><strong>Unintended weight loss</strong> and reduced appetite</li>
+                    <li><strong>Fever</strong> (especially during severe flare-ups)</li>
+                    <li><strong>Anemia</strong> (low red blood cell count, often due to blood loss, causing tiredness and paleness)</li>
                 </ul>
             </div>
         </div>
-        <div class="mt-8"> <h3 class="text-center">Extraintestinal Manifestations (EIMs)</h3>
-            <p class="visualization-context-text mb-3">UC can affect other parts of the body. <span class="citation">[3, 29, 30, 31]</span></p>
-            <div class="chart-container">
+        <div class="mt-10"> <h3 class="text-center">Beyond the Colon: Symptoms Outside the Gut (EIMs)</h3>
+            <p class="visualization-context-text mb-4">While UC primarily affects the colon, inflammation can sometimes occur in other parts of the body. These are known as Extraintestinal Manifestations (EIMs). <span class="citation">[3, 29, 30, 31]</span></p>
+            <div class="chart-container chart-container-taller">
                 <canvas id="eimPrevalenceChart"></canvas>
             </div>
-            <p class="visualization-context-text mt-2">Arthritis is the most frequent EIM. <span class="citation">[30, 31, 32]</span></p>
+            <p class="visualization-context-text mt-3"><strong>Arthritis</strong> (painful, swollen joints) is the most frequently reported EIM among people with UC. <span class="citation">[30, 31, 32]</span></p>
         </div>
     </section>
 
     <section id="diagnosis" class="content-section">
-        <h2>The Path to Diagnosis</h2>
-        <p class="text-block">Diagnosing UC involves multiple steps to confirm inflammation and rule out other conditions. <span class="citation">[1, 41, 42, 43]</span></p>
-        <h3 class="mb-3">Key Diagnostic Steps:</h3>
-        <div class="space-y-2.5"> <div class="diagram-item">Medical History & Physical Exam</div>
+        <h2>Getting Diagnosed: How Doctors Identify UC</h2>
+        <p class="text-block">Diagnosing Ulcerative Colitis usually involves several steps. Doctors aim to <strong>confirm that there is inflammation in the colon</strong>, determine how much of the colon is affected, and rule out other conditions that can cause similar symptoms (like Crohn's disease, infections, or irritable bowel syndrome).</p>
+        <h3 class="mb-4">Key Steps in Diagnosing UC:</h3>
+        <div class="space-y-3"> <div class="diagram-item"><strong>1. Medical History & Physical Exam:</strong> Your doctor will ask about your symptoms, their duration, your family's medical history, and your overall health. A physical exam will also be performed.</div>
             <div class="diagram-arrow text-center">↓</div>
-            <div class="diagram-item">Blood Tests & Stool Analysis</div>
+            <div class="diagram-item"><strong>2. Blood Tests & Stool Tests:</strong> Blood tests can check for signs of inflammation (like high C-reactive protein or ESR), anemia (low red blood cells), and nutritional deficiencies. Stool tests help rule out infections and can detect hidden blood.</div>
             <div class="diagram-arrow text-center">↓</div>
-            <div class="diagram-item">Endoscopy (Colonoscopy/Sigmoidoscopy)</div>
+            <div class="diagram-item"><strong>3. Endoscopy (Colonoscopy or Sigmoidoscopy):</strong> This is a key procedure. A doctor uses a thin, flexible tube with a light and camera (endoscope) to look directly at the lining of your colon and rectum.</div>
             <div class="diagram-arrow text-center">↓</div>
-            <div class="diagram-item" style="border-color: #10B981; background-color: #ECFDF5; color: #065F46;">Biopsy & Confirmation</div> </div>
-        <p class="visualization-context-text mt-3">Endoscopy with biopsy is the gold standard. <span class="citation">[1, 43, 48]</span></p>
+            <div class="diagram-item diagnosis-confirmed"><strong>4. Biopsy & Confirmation:</strong> During the endoscopy, small tissue samples (biopsies) are taken from the colon lining. These are examined under a microscope by a pathologist to confirm the diagnosis of UC and assess the type of inflammation.</div>
+        </div>
+        <p class="visualization-context-text mt-4">An <strong>endoscopy with biopsies</strong> is considered the most definitive way to diagnose Ulcerative Colitis. <span class="citation">[1, 43, 48]</span></p>
     </section>
 
     <section id="treatment" class="content-section">
-        <h2>Treatment Landscape for UC</h2>
-        <p class="text-block">Treatment aims to induce and maintain remission, improve quality of life, and prevent complications. <span class="citation">[5, 51, 52, 53, 54]</span></p>
+        <h2>Treating UC: Options for Managing the Condition</h2>
+        <p class="text-block">The main goals of treating Ulcerative Colitis are to <strong>reduce the inflammation</strong> in your colon, bring about and maintain <strong>remission</strong> (periods when you have few or no symptoms), improve your quality of life, and prevent complications. Your treatment plan will be tailored to you, considering the severity and extent of your UC, as well as your personal preferences.</p>
 
         <div>
-            <h3 class="mb-3">Medication Categories</h3>
-            <div class="space-y-2 text-xs">
-                <div class="diagram-item med-category-item med-cat-small-mol">Small Molecules (JAK Inhibitors, S1P Modulators)</div>
-                <div class="diagram-item med-category-item med-cat-biologic">Biologic Therapies</div>
-                <div class="diagram-item med-category-item med-cat-immunomod">Immunomodulators</div>
-                <div class="diagram-item med-category-item med-cat-corticosteroid">Corticosteroids (For Flares)</div>
-                <div class="diagram-item med-category-item med-cat-aminosalicylate">Aminosalicylates (5-ASAs)</div>
+            <h3 class="mb-4">Primary Medication Categories for UC</h3>
+            <div class="space-y-2.5"> <div class="diagram-item med-category-item med-cat-aminosalicylate"><strong>Aminosalicylates (5-ASAs):</strong> Often a first step for mild to moderate UC. They work directly on the lining of the gut to reduce inflammation. (Examples: mesalamine, sulfasalazine)</div>
+                <div class="diagram-item med-category-item med-cat-corticosteroid"><strong>Corticosteroids:</strong> These are strong, fast-acting anti-inflammatory drugs used to control moderate to severe flare-ups. Due to side effects, they are typically used for short periods. (Examples: prednisone, budesonide)</div>
+                <div class="diagram-item med-category-item med-cat-immunomod"><strong>Immunomodulators:</strong> These drugs modify or weaken the body's immune system to reduce inflammation. They take longer to start working and are often used for long-term management or if 5-ASAs aren't enough. (Examples: azathioprine, 6-mercaptopurine)</div>
+                <div class="diagram-item med-category-item med-cat-biologic"><strong>Biologic Therapies:</strong> These are advanced, targeted medications made from living organisms (or components of them) that block specific proteins or cells involved in the inflammation process. Used for moderate to severe UC that hasn't responded to other treatments. (Examples: infliximab, adalimumab, vedolizumab, ustekinumab)</div>
+                <div class="diagram-item med-category-item med-cat-small-mol"><strong>Small Molecule Drugs (e.g., JAK Inhibitors, S1P Modulators):</strong> These are newer oral medications that target specific pathways inside cells to block inflammation. Also used for moderate to severe UC. (Examples: tofacitinib, upadacitinib, ozanimod)</div>
             </div>
-            <p class="visualization-context-text mt-2">Medication choice depends on severity and location. <span class="citation">[43, 50, 70]</span></p>
+            <p class="visualization-context-text mt-3">The best medication for you depends on how severe your UC is and where it's located in your colon. <span class="citation">[43, 50, 70]</span></p>
         </div>
 
-        <div class="mt-8"> <h3 class="text-center">Corticosteroid Efficacy & Challenges</h3>
-            <div class="chart-container">
+        <div class="mt-10"> <h3 class="text-center">Corticosteroids: Effectiveness and Considerations</h3>
+            <div class="chart-container chart-container-taller">
                 <canvas id="steroidEfficacyChart"></canvas>
             </div>
-            <p class="visualization-context-text mt-2">Effective for flares but not for long-term use. <span class="citation">[61, 62, 64]</span></p>
+            <p class="visualization-context-text mt-3">Corticosteroids are highly effective for calming flare-ups quickly, but they are generally not suitable for long-term use due to the risk of significant side effects. <span class="citation">[61, 62, 64]</span></p>
         </div>
 
         <div class="gemini-feature-section">
-            <h3 class="text-center mb-2">✨ Ask Your Doctor: Question Generator</h3>
-            <p class="visualization-context-text text-center mb-4">Prepare for your doctor's appointment.</p>
-            <input type="text" id="doctorQuestionTopic" class="gemini-input" placeholder="E.g., 'Side effects of medication'">
+            <h3 class="text-center mb-3">✨ Doctor Discussion Helper: Question Ideas</h3>
+            <p class="visualization-context-text text-center mb-5">Not sure what questions to ask your doctor? Type in a topic or concern (e.g., "new medication," "managing fatigue") to get some tailored question suggestions.</p>
+            <input type="text" id="doctorQuestionTopic" class="gemini-input" placeholder="e.g., 'medication side effects', 'diet during flare-up'">
             <button id="generateDoctorQuestionsBtn" class="gemini-button">Generate Questions</button>
             <div id="doctorQuestionsLoader" class="hidden loading-spinner"></div>
-            <div id="doctorQuestionsOutput" class="gemini-output mt-4 hidden"></div>
-            <p class="disclaimer-text">This tool provides general question suggestions, not medical advice.</p>
+            <div id="doctorQuestionsOutput" class="gemini-output mt-5 hidden"></div>
+            <p class="disclaimer-text">This tool offers general question ideas, not medical advice. Always discuss your personal health situation with your healthcare provider.</p>
         </div>
 
-        <div class="mt-10"> <h3 class="text-center">Surgical Options</h3>
-            <p class="visualization-context-text mb-1">Surgery may be needed for 1/4 to 1/3 of UC patients. <span class="citation">[43, 51, 88]</span></p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 text-sm">
-                <div>
-                    <h4 class="text-emerald-700">When is Surgery Considered? <span class="citation">[43, 85]</span></h4>
-                    <ul class="list-disc">
-                        <li>Life-threatening complications</li>
-                        <li>Failure of medical therapy</li>
-                        <li>Cancer or high-grade dysplasia</li>
+        <div class="mt-12"> <h3 class="text-center">When Surgery Might Be an Option</h3>
+            <p class="visualization-context-text mb-2">While medications are the main treatment for most people, surgery to remove the colon (colectomy) becomes necessary for about <strong>one-quarter to one-third of UC patients</strong> at some stage. <span class="citation">[43, 51, 88]</span></p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-5 text-base"> <div>
+                    <h4 class="text-blue-700">Reasons Surgery May Be Recommended: <span class="citation">[43, 85]</span></h4>
+                    <ul class="list-disc space-y-1.5">
+                        <li>Severe, life-threatening complications like toxic megacolon (rapid swelling of the colon) or a hole (perforation) in the colon.</li>
+                        <li>Medical treatments no longer control symptoms effectively (medically refractory disease).</li>
+                        <li>Discovery of colon cancer or high-grade dysplasia (cells that are likely to become cancerous).</li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-emerald-700">Common Surgical Procedures:</h4>
-                    <ul class="list-disc">
-                        <li>IPAA (J-Pouch) <span class="citation">[88, 90]</span></li>
-                        <li>Proctocolectomy with End Ileostomy <span class="citation">[50, 86]</span></li>
+                    <h4 class="text-blue-700">Common Types of Surgery for UC:</h4>
+                    <ul class="list-disc space-y-1.5">
+                        <li><strong>IPAA (Ileal Pouch-Anal Anastomosis or J-Pouch):</strong> The colon and rectum are removed. A pouch is surgically created from the end of the small intestine (ileum) and connected to the anus, allowing for bowel movements in a relatively normal way. This is often the preferred surgery if possible. <span class="citation">[88, 90]</span></li>
+                        <li><strong>Proctocolectomy with End Ileostomy:</strong> The colon and rectum are removed. The end of the small intestine is brought through an opening (stoma) made in the abdomen. Waste then collects in an external bag (ostomy bag) worn over the stoma. <span class="citation">[50, 86]</span></li>
                     </ul>
                 </div>
             </div>
@@ -447,47 +462,48 @@
     </section>
 
     <section id="living" class="content-section">
-        <h2>Living with UC: Diet & Lifestyle</h2>
-        <p class="text-block">Diet and lifestyle play key roles in symptom management and overall well-being. <span class="citation">[1, 22, 99, 114]</span></p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8"> <div>
-                <h3>Dietary Guidance <span class="citation">[99, 101]</span></h3>
-                <h4 class="text-emerald-700 mt-3">During Remission:</h4>
-                <ul class="list-disc text-sm"><li>Balanced, nutrient-rich diet.</li></ul>
-                <h4 class="text-red-700 mt-2">During Flares:</h4>
-                <ul class="list-disc text-sm"><li>Low-fiber/low-residue, soft, bland foods.</li></ul>
+        <h2>Living Well with UC: Diet, Lifestyle, and Self-Care Tips</h2>
+        <p class="text-block">While there isn't a specific "UC diet" that can cure the condition, your food choices and lifestyle habits can make a big difference in <strong>managing your symptoms</strong>, improving your overall health, and possibly reducing how often you have flare-ups.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10"> <div>
+                <h3>Dietary Guidance for UC <span class="citation">[99, 101]</span></h3>
+                <h4 class="text-blue-700 mt-4">When in Remission (Feeling Well):</h4>
+                <ul class="list-disc text-base space-y-1"> <li>Aim for a <strong>balanced, nutrient-dense diet</strong> that you find easy to tolerate. Many people benefit from focusing on whole, unprocessed foods. Keeping a food diary can help identify personal trigger foods.</li>
+                </ul>
+                <h4 class="text-amber-700 mt-3">During Flare-Ups (Symptoms Active):</h4>
+                <ul class="list-disc text-base space-y-1"> <li>A <strong>low-fiber, low-residue diet</strong> may help ease symptoms. This means choosing soft, bland foods like white rice, cooked chicken or fish, bananas, and well-cooked vegetables without skins or seeds. It's important to avoid foods you know make your symptoms worse.</li>
+                </ul>
             </div>
             <div>
-                <h3>Lifestyle & Self-Care</h3>
-                <ul class="list-disc space-y-1.5">
-                    <li>Stress Management <span class="citation">[1, 114, 116]</span></li>
-                    <li>Regular Exercise <span class="citation">[115, 120]</span></li>
-                    <li>Adequate Sleep & Medication Adherence</li>
+                <h3>Lifestyle and Self-Care Strategies</h3>
+                <ul class="list-disc space-y-2 text-base"> <li><strong>Manage Stress:</strong> While stress doesn't cause UC, it can trigger or worsen symptoms for some. Finding healthy ways to cope with stress, like mindfulness, meditation, yoga, or talking to a therapist, can be very beneficial. <span class="citation">[1, 114, 116]</span></li>
+                    <li><strong>Gentle, Regular Exercise:</strong> Physical activity, as tolerated, can boost your mood, reduce stress, and improve overall health. Listen to your body and choose activities you enjoy. <span class="citation">[115, 120]</span></li>
+                    <li><strong>Prioritize Sleep:</strong> Getting enough quality sleep is vital for your immune system and overall well-being.</li>
+                    <li><strong>Medication Adherence:</strong> It's crucial to take your medications exactly as prescribed by your doctor, even when you're feeling well (in remission), to help prevent future flare-ups.</li>
                 </ul>
             </div>
         </div>
 
         <div class="gemini-feature-section">
-            <h3 class="text-center mb-2">✨ Personalized Diet Ideas</h3>
-            <p class="visualization-context-text text-center mb-4">Get general meal ideas. Not a prescribed diet plan.</p>
-            <textarea id="dietPreferences" class="gemini-input h-24" placeholder="E.g., 'Low-lactose breakfast ideas'"></textarea>
-            <button id="generateDietIdeasBtn" class="gemini-button">Get Diet Ideas</button>
+            <h3 class="text-center mb-3">✨ Personalized Diet Ideas Generator</h3>
+            <p class="visualization-context-text text-center mb-5">Need some food inspiration? Tell us about your current dietary needs or what you're looking for (e.g., "easy-to-digest breakfast," "low-lactose snacks for a sensitive gut") to get some general meal ideas.</p>
+            <textarea id="dietPreferences" class="gemini-input h-28" placeholder="e.g., 'easy-to-digest breakfast', 'low-lactose snacks'"></textarea> <button id="generateDietIdeasBtn" class="gemini-button">Get Diet Ideas</button>
             <div id="dietIdeasLoader" class="hidden loading-spinner"></div>
-            <div id="dietIdeasOutput" class="gemini-output mt-4 hidden"></div>
-            <p class="disclaimer-text">General dietary suggestions, not medical advice. Consult a professional.</p>
+            <div id="dietIdeasOutput" class="gemini-output mt-5 hidden"></div>
+            <p class="disclaimer-text">These are general dietary suggestions and not medical advice. Always discuss your diet with your doctor or a registered dietitian to create a plan that's right for your specific UC and nutritional needs.</p>
         </div>
 
-        <div class="mt-10"> <h3 class="text-center">Nutritional Supplements</h3>
-            <p class="visualization-context-text mb-3">Deficiencies are common. Consult your doctor. <span class="citation">[17, 84, 106]</span></p>
-            <div class="chart-container">
+        <div class="mt-12"> <h3 class="text-center">Common Nutritional Concerns & Deficiencies</h3>
+            <p class="visualization-context-text mb-4">Inflammation in the colon and symptoms like diarrhea can make it harder for your body to absorb all the nutrients it needs from food. Regular check-ups with your doctor may include blood tests to monitor for deficiencies, and supplementation might be recommended. <span class="citation">[17, 84, 106]</span></p>
+            <div class="chart-container chart-container-taller">
                 <canvas id="commonDeficienciesChart"></canvas>
             </div>
-            <p class="visualization-context-text mt-2">Iron deficiency is very common. <span class="citation">[17, 84]</span></p>
+            <p class="visualization-context-text mt-3"><strong>Iron deficiency anemia</strong> is especially common in UC due to blood loss from intestinal ulcers and chronic inflammation. <span class="citation">[17, 84]</span></p>
         </div>
     </section>
 
     <footer class="footer-text">
-        <p>This infographic provides general information and is not a substitute for professional medical advice. Always consult with a qualified healthcare provider.</p>
-        <p class="mt-2">AI-generated content is for informational purposes only.</p>
+        <p>This infographic provides general information about Ulcerative Colitis. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition or treatment options.</p>
+        <p class="mt-3">AI-generated content, such as question suggestions and diet ideas, is for informational and brainstorming purposes only. This content should be reviewed and discussed with a qualified healthcare professional before making any decisions related to your health or treatment.</p>
     </footer>
 
 </div>
@@ -495,22 +511,24 @@
 <script>
     Chart.defaults.font.family = 'Inter';
     Chart.defaults.color = '#64748B'; // Slate 500 for chart text
+    Chart.defaults.font.weight = 400; // Default font weight for charts
 
-    // Calmer Emerald-Accented Chart Palette
+    // Calmer Blue-Accented Chart Palette
     const CALM_CHART_COLORS = {
-        primaryAccentDark: '#047857',    // Emerald 700
-        primaryAccentMedium: '#10B981', // Emerald 500
-        primaryAccentLight: '#34D399',  // Emerald 400
-        accentLighter: '#A7F3D0',    // Emerald 200
-        neutralBase: '#FFFFFF',       // White for backgrounds in mixed charts if needed
+        primaryAccentDark: '#1E40AF',    // Blue 800
+        primaryAccentMedium: '#3B82F6', // Blue 500
+        primaryAccentLight: '#60A5FA',  // Blue 400
+        accentLighter: '#93C5FD',    // Blue 300
+        accentPale: '#BFDBFE', // Blue 200
+        neutralBase: '#FFFFFF',       // White
         neutralLight: '#F8FAFC',      // Slate 50
-        neutralMedium: '#94A3B8',     // Slate 400 (for grid lines, secondary text)
+        neutralMedium: '#94A3B8',     // Slate 400
         textDark: '#334155'         // Slate 700
     };
 
     function wrapLabel(str, maxWidth) {
         if (!str) return '';
-        if (Array.isArray(str)) return str; // Already wrapped
+        if (Array.isArray(str)) return str; 
         const strToString = String(str);
         if (strToString.length <= maxWidth) return strToString;
 
@@ -532,7 +550,7 @@
     const tooltipTitleCallback = function(tooltipItems) {
         const item = tooltipItems[0];
         let label = item.chart.data.labels[item.dataIndex];
-        if (Array.isArray(label)) return label.join(' '); // Join wrapped lines
+        if (Array.isArray(label)) return label.join(' '); 
         return String(label);
     };
 
@@ -543,38 +561,39 @@
             legend: {
                 position: 'bottom',
                 labels: {
-                    font: { size: 10, family: 'Inter' },
-                    color: CALM_CHART_COLORS.neutralMedium,
-                    boxWidth: 12,
-                    padding: 15
+                    font: { size: 11, family: 'Inter', weight: 500 }, // Slightly larger & medium weight legend
+                    color: CALM_CHART_COLORS.textDark, // Darker legend text
+                    boxWidth: 14, // Larger box
+                    padding: 18 // Increased padding
                 }
             },
             tooltip: {
                 callbacks: { title: tooltipTitleCallback },
-                titleFont: { family: 'Inter', weight: '600', size: 12 },
-                bodyFont: { family: 'Inter', size: 11 },
-                backgroundColor: 'rgba(15, 23, 42, 0.85)', // Slate 900 with opacity
+                titleFont: { family: 'Inter', weight: '600', size: 13 }, // Larger title
+                bodyFont: { family: 'Inter', size: 12, weight: '400' }, // Larger body
+                backgroundColor: 'rgba(15, 23, 42, 0.92)', 
                 titleColor: '#FFFFFF',
-                bodyColor: '#E2E8F0', // Slate 200
-                padding: 10,
-                cornerRadius: 4,
-                borderColor: 'rgba(255,255,255,0.1)',
+                bodyColor: '#E2E8F0', 
+                padding: 12, // Increased padding
+                cornerRadius: 5, // Slightly more rounded
+                borderColor: 'rgba(255,255,255,0.15)',
                 borderWidth: 1
             }
         },
         scales: {
             y: {
                 beginAtZero: true,
-                ticks: { font: { size: 9, family: 'Inter' }, color: CALM_CHART_COLORS.neutralMedium },
-                grid: { color: '#E2E8F0' } // Slate 200
+                ticks: { font: { size: 10, family: 'Inter', weight: 500 }, color: CALM_CHART_COLORS.neutralMedium, padding: 6 }, // Medium weight ticks
+                grid: { color: '#E2E8F0' } 
             },
             x: {
                 ticks: {
-                    font: { size: 9, family: 'Inter' },
+                    font: { size: 10, family: 'Inter', weight: 500 }, // Medium weight ticks
                     color: CALM_CHART_COLORS.neutralMedium,
+                    padding: 6,
                     callback: function(value, index, values) {
                         const label = this.getLabelForValue(value);
-                        return wrapLabel(label, 10);
+                        return wrapLabel(label, 10); 
                     }
                 },
                 grid: { display: false }
@@ -587,18 +606,25 @@
         new Chart(document.getElementById('riskFactorAgeChart'), {
             type: 'bar',
             data: {
-                labels: ['15-30 years', 'Mid-30s', wrapLabel('>60 years', 10)],
+                labels: ['15-30 years', '30-50 years', wrapLabel('>60 years (less common peak)', 12)],
                 datasets: [{
-                    label: 'Age of Onset',
-                    data: [60, 25, 15],
+                    label: 'Typical Age of Diagnosis',
+                    data: [60, 25, 15], 
                     backgroundColor: [CALM_CHART_COLORS.primaryAccentMedium, CALM_CHART_COLORS.primaryAccentLight, CALM_CHART_COLORS.accentLighter],
                     borderWidth: 0,
-                    borderRadius: 3,
-                    barPercentage: 0.7,
+                    borderRadius: 4, // Slightly more rounding
+                    barPercentage: 0.75, // Thicker bars
                     categoryPercentage: 0.7
                 }]
             },
-            options: { ...commonChartOptions, indexAxis: 'y', plugins: {...commonChartOptions.plugins, legend: {display: false}} }
+            options: { ...commonChartOptions, 
+                indexAxis: 'y', 
+                plugins: {...commonChartOptions.plugins, legend: {display: false}},
+                scales: {
+                    x: { ...commonChartOptions.scales.x, ticks: { ...commonChartOptions.scales.x.ticks, callback: function(value) { return value + "%" } } }, 
+                    y: { ...commonChartOptions.scales.y, ticks: { ...commonChartOptions.scales.y.ticks, callback: function(value) { return wrapLabel(this.getLabelForValue(value), 15) } } }
+                }
+            }
         });
     }
 
@@ -606,17 +632,17 @@
         new Chart(document.getElementById('proctitisPrevalenceChart'), {
             type: 'doughnut',
             data: {
-                labels: ['Ulcerative Proctitis', 'Other UC Types'],
+                labels: ['Ulcerative Proctitis (Initial Presentation)', 'Other UC Types (Initial Presentation)'],
                 datasets: [{
-                    label: 'Prevalence',
+                    label: 'Initial Presentation',
                     data: [33, 67],
                     backgroundColor: [CALM_CHART_COLORS.primaryAccentMedium, CALM_CHART_COLORS.neutralLight],
                     borderColor: CALM_CHART_COLORS.neutralBase,
-                    borderWidth: 3,
-                    hoverOffset: 4
+                    borderWidth: 4, // Thicker border
+                    hoverOffset: 6 // Increased hover offset
                 }]
             },
-            options: { ...commonChartOptions, cutout: '70%' }
+            options: { ...commonChartOptions, cutout: '65%' } // Slightly smaller cutout for thicker ring
         });
     }
 
@@ -624,20 +650,24 @@
         new Chart(document.getElementById('eimPrevalenceChart'), {
             type: 'bar',
             data: {
-                labels: [wrapLabel('Arthritis',10), wrapLabel('Skin Issues',10), wrapLabel('Eye Issues',10), wrapLabel('PSC (Liver)',10)],
+                labels: [wrapLabel('Arthritis (Joints)',10), wrapLabel('Skin Issues (e.g., Erythema Nodosum)',15), wrapLabel('Eye Issues (e.g., Uveitis)',12), wrapLabel('PSC (Liver/Bile Duct)',10)],
                 datasets: [{
-                    label: 'Approx. Prevalence (%)',
-                    data: [40, 20, 12, 7],
+                    label: 'Approx. Prevalence of EIMs (%)',
+                    data: [40, 20, 12, 7], 
                     backgroundColor: CALM_CHART_COLORS.primaryAccentMedium,
-                    borderRadius: 3,
+                    borderRadius: 4,
                     borderWidth: 0,
-                    barPercentage: 0.6,
-                    categoryPercentage: 0.6
+                    barPercentage: 0.65, // Slightly thicker bars
+                    categoryPercentage: 0.65
                 }]
             },
             options: { ...commonChartOptions,
-                scales: { ...commonChartOptions.scales, x: { ...commonChartOptions.scales.x, ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 }}},
-                plugins: {...commonChartOptions.plugins, legend: {display: true, position: 'top', labels: {...commonChartOptions.plugins.legend.labels, font: {size: 9}}}}
+                scales: { 
+                    ...commonChartOptions.scales, 
+                    x: { ...commonChartOptions.scales.x, ticks: { autoSkip: false, maxRotation: 0, minRotation: 0, callback: function(value) { return wrapLabel(this.getLabelForValue(value), 12) } }},
+                    y: { ...commonChartOptions.scales.y, ticks: { ...commonChartOptions.scales.y.ticks, callback: function(value) { return value + "%" } } } 
+                },
+                plugins: {...commonChartOptions.plugins, legend: {display: true, position: 'top', labels: {...commonChartOptions.plugins.legend.labels, font: {size: 10, weight: 500}}}}
             }
         });
     }
@@ -646,16 +676,52 @@
         new Chart(document.getElementById('steroidEfficacyChart'), {
             type: 'pie',
             data: {
-                labels: [wrapLabel('Complete Remission',12), wrapLabel('Partial Remission',12), wrapLabel('Steroid-Refractory',12), wrapLabel('Steroid-Dependent',12)],
+                labels: [
+                    wrapLabel('Achieve Complete Remission',15), 
+                    wrapLabel('Achieve Partial Remission',15), 
+                    wrapLabel('Steroid-Refractory (No Response)',18), 
+                    wrapLabel('Steroid-Dependent (Symptoms Return on Taper)',20)
+                ],
                 datasets: [{
-                    data: [54, 16, 18, 12],
-                    backgroundColor: [CALM_CHART_COLORS.primaryAccentDark, CALM_CHART_COLORS.primaryAccentMedium, CALM_CHART_COLORS.primaryAccentLight, CALM_CHART_COLORS.accentLighter],
+                    data: [54, 16, 18, 12], 
+                    backgroundColor: [CALM_CHART_COLORS.primaryAccentDark, CALM_CHART_COLORS.primaryAccentMedium, CALM_CHART_COLORS.accentLighter, CALM_CHART_COLORS.accentPale],
                     borderColor: CALM_CHART_COLORS.neutralBase,
-                    borderWidth: 3,
-                    hoverOffset: 4
+                    borderWidth: 4,
+                    hoverOffset: 6
                 }]
             },
-            options: { ...commonChartOptions }
+            options: { ...commonChartOptions,
+                plugins: {
+                    ...commonChartOptions.plugins,
+                    legend: {
+                        ...commonChartOptions.plugins.legend,
+                        labels: {
+                            ...commonChartOptions.plugins.legend.labels,
+                             boxWidth: 12,
+                             font: {size: 10, weight: 500},
+                             padding: 12,
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map(function(label, i) {
+                                        const meta = chart.getDatasetMeta(0);
+                                        const style = meta.controller.getStyle(i);
+                                        return {
+                                            text: wrapLabel(label, 22).join(' '), // Wrap legend slightly wider
+                                            fillStyle: style.backgroundColor,
+                                            strokeStyle: style.borderColor,
+                                            lineWidth: style.borderWidth,
+                                            hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    }
+                }
+             }
         });
     }
 
@@ -663,20 +729,24 @@
         new Chart(document.getElementById('commonDeficienciesChart'), {
             type: 'bar',
             data: {
-                labels: [wrapLabel('Iron Deficiency',12), wrapLabel('Vitamin D',10), wrapLabel('Vitamin B12',10), wrapLabel('Calcium',10)],
+                labels: [wrapLabel('Iron Deficiency Anemia',15), wrapLabel('Vitamin D Deficiency',12), wrapLabel('Vitamin B12 Deficiency',12), wrapLabel('Calcium Deficiency',12)],
                 datasets: [{
-                    label: 'Estimated Prevalence (%)',
-                    data: [76, 60, 25, 30],
+                    label: 'Estimated Prevalence of Deficiency (%)',
+                    data: [76, 60, 25, 30], 
                     backgroundColor: CALM_CHART_COLORS.primaryAccentMedium,
-                    borderRadius: 3,
+                    borderRadius: 4,
                     borderWidth: 0,
-                    barPercentage: 0.6,
-                    categoryPercentage: 0.6
+                    barPercentage: 0.65,
+                    categoryPercentage: 0.65
                 }]
             },
             options: { ...commonChartOptions,
-                scales: { ...commonChartOptions.scales, x: { ...commonChartOptions.scales.x, ticks: { autoSkip: false, maxRotation: 0, minRotation: 0 }}},
-                plugins: {...commonChartOptions.plugins, legend: {display: true, position: 'top', labels: {...commonChartOptions.plugins.legend.labels, font: {size: 9}}}}
+                scales: { 
+                    ...commonChartOptions.scales, 
+                    x: { ...commonChartOptions.scales.x, ticks: { autoSkip: false, maxRotation: 0, minRotation: 0, callback: function(value) { return wrapLabel(this.getLabelForValue(value), 15) } }},
+                    y: { ...commonChartOptions.scales.y, ticks: { ...commonChartOptions.scales.y.ticks, callback: function(value) { return value + "%" } } } 
+                },
+                plugins: {...commonChartOptions.plugins, legend: {display: true, position: 'top', labels: {...commonChartOptions.plugins.legend.labels, font: {size: 10, weight: 500 }}}}
             }
         });
     }
@@ -691,7 +761,7 @@
     const dietIdeasLoader = document.getElementById('dietIdeasLoader');
     const dietIdeasOutput = document.getElementById('dietIdeasOutput');
 
-    const apiKey = "AIzaSyCTyBJ5dQZoWWgB14Wjd0l7heigxDRT-qs"; // Replace with your actual API key if needed for testing
+    const apiKey = ""; // Intentionally empty, Canvas will provide it.
 
     async function callGeminiAPI(prompt, outputElement, loaderElement, buttonElement) {
         loaderElement.classList.remove('hidden');
@@ -699,37 +769,7 @@
         outputElement.textContent = '';
         buttonElement.disabled = true;
         buttonElement.classList.add('opacity-75', 'cursor-not-allowed');
-
-        // Simulate API call delay for demo purposes if not using a real key
-        if (apiKey === "YOUR_API_KEY_HERE" || apiKey.includes("AIzaSyCTyBJ5dQZoWWgB14Wjd0l7heigxDRT-qs")) { // Check if it's the placeholder
-             console.warn("Using placeholder API key or potentially invalid key for Gemini API call. Simulating response.");
-             await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
-             if (buttonElement.id === "generateDoctorQuestionsBtn"){
-                outputElement.textContent = `1. Based on my current symptoms related to "${doctorQuestionTopicInput.value || 'this topic'}", what are the primary concerns?
-2. What are the potential benefits and risks of the suggested treatment options for me regarding "${doctorQuestionTopicInput.value || 'this topic'}"?
-3. How will we monitor the effectiveness of the treatment and what signs should I look out for?
-4. Are there any lifestyle adjustments (diet, exercise) you recommend in conjunction with medical treatment for "${doctorQuestionTopicInput.value || 'this topic'}"?
-5. What are the long-term expectations or prognosis related to "${doctorQuestionTopicInput.value || 'this topic'}" with the current management plan?`;
-             } else if (buttonElement.id === "generateDietIdeasBtn") {
-                 outputElement.textContent = `Here are some general ideas based on your input ("${dietPreferencesInput.value || 'general needs'}"):\n
-* **Idea 1: Plain, well-cooked oatmeal with ripe banana slices.**
-    * *Why it might be suitable:* Oatmeal is often easy to digest, and ripe bananas are generally low in fiber and gentle on the stomach.
-* **Idea 2: Baked or steamed white fish (like cod or tilapia) with plain white rice and cooked carrots.**
-    * *Why it might be suitable:* White fish is a lean protein, white rice is low in fiber, and well-cooked carrots are usually well-tolerated.
-* **Idea 3: Scrambled eggs with a small portion of plain, toasted white bread.**
-    * *Why it might be suitable:* Eggs are a good source of protein and are often well-tolerated. Plain white toast is a bland option.\n
-IMPORTANT: These are general suggestions and NOT medical or nutritional advice. Always consult with your doctor or a registered dietitian for personalized dietary plans.`;
-             } else {
-                 outputElement.textContent = 'Simulated response. Configure API key for live data.';
-             }
-             loaderElement.classList.add('hidden');
-             outputElement.classList.remove('hidden');
-             buttonElement.disabled = false;
-             buttonElement.classList.remove('opacity-75', 'cursor-not-allowed');
-             return;
-        }
-
-
+        
         let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
         const payload = { contents: chatHistory };
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -743,6 +783,7 @@ IMPORTANT: These are general suggestions and NOT medical or nutritional advice. 
 
             if (!response.ok) {
                 const errorData = await response.json();
+                console.error("API Error Data:", errorData);
                 throw new Error(`API request failed with status ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
             }
 
@@ -754,12 +795,14 @@ IMPORTANT: These are general suggestions and NOT medical or nutritional advice. 
                 const text = result.candidates[0].content.parts[0].text;
                 outputElement.textContent = text;
             } else if (result.promptFeedback && result.promptFeedback.blockReason) {
-                outputElement.textContent = `The request was blocked. Reason: ${result.promptFeedback.blockReason}. Please try modifying your input.`;
+                 outputElement.textContent = `The request was blocked. Reason: ${result.promptFeedback.blockReason}. This can sometimes happen due to safety filters. Please try rephrasing your input.`;
+                 console.warn("Gemini API prompt blocked:", result.promptFeedback);
             } else {
-                outputElement.textContent = 'Could not retrieve information. The response from the AI was not in the expected format.';
+                outputElement.textContent = 'Could not retrieve information. The response from the AI was not in the expected format. Please try again.';
+                console.warn("Gemini API unexpected response format:", result);
             }
         } catch (error) {
-            outputElement.textContent = `An error occurred: ${error.message}. Please try again.`;
+            outputElement.textContent = `An error occurred: ${error.message}. Please check your network connection or try rephrasing your input. If the issue persists, the AI service might be temporarily unavailable.`;
             console.error("Gemini API call error:", error);
         } finally {
             loaderElement.classList.add('hidden');
@@ -773,15 +816,15 @@ IMPORTANT: These are general suggestions and NOT medical or nutritional advice. 
         generateDoctorQuestionsBtn.addEventListener('click', () => {
             const topic = doctorQuestionTopicInput.value.trim();
             if (!topic) {
-                doctorQuestionsOutput.textContent = 'Please enter a topic.';
+                doctorQuestionsOutput.textContent = 'Please enter a topic or concern (e.g., "managing flares", "long-term medication effects").';
                 doctorQuestionsOutput.classList.remove('hidden');
                 return;
             }
             const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC).
-Generate a list of 5-7 concise questions that a patient with Ulcerative Colitis could ask their doctor about the following topic: "${topic}".
-The questions should be clear, focused, and aimed at helping the patient better understand their condition, treatment options, potential side effects, or long-term management related to the specified topic.
+Generate a list of 5-7 concise and practical questions that a patient with Ulcerative Colitis could ask their doctor about the following specific topic: "${topic}".
+The questions should be clear, focused, and aimed at helping the patient better understand their condition, treatment options, potential side effects, lifestyle adjustments, or long-term management related to the specified topic.
 Format the output as a numbered list.
-IMPORTANT: Do NOT provide any medical advice, diagnoses, or treatment recommendations. Only generate questions. Start the response directly with the first question.`;
+IMPORTANT: Do NOT provide any medical advice, diagnoses, or treatment recommendations. Only generate relevant questions. Start the response directly with the first question.`;
             callGeminiAPI(prompt, doctorQuestionsOutput, doctorQuestionsLoader, generateDoctorQuestionsBtn);
         });
     }
@@ -790,15 +833,15 @@ IMPORTANT: Do NOT provide any medical advice, diagnoses, or treatment recommenda
         generateDietIdeasBtn.addEventListener('click', () => {
             const preferences = dietPreferencesInput.value.trim();
             if (!preferences) {
-                dietIdeasOutput.textContent = 'Please enter your dietary preferences or needs.';
+                dietIdeasOutput.textContent = 'Please describe your dietary needs or what you\'re looking for (e.g., "low fiber snacks", "gentle breakfast ideas during a flare").';
                 dietIdeasOutput.classList.remove('hidden');
                 return;
             }
             const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC).
-I am looking for general meal or food ideas that are often considered suitable for people with Ulcerative Colitis, keeping in mind the following preferences/restrictions: "${preferences}".
-Please provide 3-4 simple meal or snack ideas. For each idea, briefly explain why it might be suitable (e.g., "easy to digest," "low in common irritants").
-Format the output clearly, perhaps using bullet points for each idea.
-IMPORTANT: Emphasize that these are general suggestions and NOT medical or nutritional advice. State that the user should always consult with their doctor or a registered dietitian for personalized dietary plans. Start the response directly with the meal ideas. Conclude with the disclaimer.`;
+I am looking for general meal or food ideas that are often considered suitable for people with Ulcerative Colitis, keeping in mind the following preferences, restrictions, or situation: "${preferences}".
+Please provide 3-4 simple meal or snack ideas. For each idea, briefly explain why it might be generally suitable (e.g., "easy to digest," "low in common irritants," "good source of X nutrient often needed").
+Format the output clearly, perhaps using bullet points for each idea with the explanation nested.
+IMPORTANT: Crucially, emphasize that these are general suggestions and NOT personalized medical or nutritional advice. State clearly that the user MUST always consult with their doctor or a registered dietitian for dietary plans tailored to their specific UC condition and needs. Start the response directly with the meal ideas. Conclude with this mandatory disclaimer.`;
             callGeminiAPI(prompt, dietIdeasOutput, dietIdeasLoader, generateDietIdeasBtn);
         });
     }
