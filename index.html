@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ulcerative Colitis: A Comprehensive Infographic</title>
+    <title>Ulcerative Colitis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         .main-content-area {
             max-width: 800px; /* Slightly wider for better spacing */
             margin: 0 auto;
-            padding: 4.5rem 2.5rem; /* Increased padding */
+            padding: 4rem 2.5rem; /* Adjusted padding for overall balance */
         }
 
         .content-section {
@@ -52,10 +52,10 @@
         h1 { /* Main Page Title */
             color: #0F172A; /* Slate 900 */
             font-weight: 700; 
-            font-size: 2.75rem; /* Enhanced size */
+            font-size: 2.75rem; /* Enhanced size - This makes it significantly larger */
             line-height: 1.15; /* Adjusted line height */
             letter-spacing: -0.03em; /* Slightly tighter */
-            margin-bottom: 1.5rem; 
+            margin-bottom: 2rem; /* Increased spacing from subtitle */
             text-align: center;
         }
 
@@ -73,18 +73,21 @@
             font-weight: 600;
             font-size: 1.375rem; /* Enhanced size */
             line-height: 1.35;
-            margin-bottom: 1.5rem; /* Increased spacing after */
+            margin-bottom: 1.75rem; /* Slightly more spacing after */
         }
 
         h4 { /* Smaller headings */
             color: #1D4ED8; /* Blue 700 */
             font-weight: 600; /* Thicker */
             font-size: 1.1rem; /* Enhanced size */
-            margin-bottom: 0.75rem; /* Increased spacing after */
+            margin-bottom: 0.85rem; /* Slightly more spacing after */
         }
         h4.text-slate-700 {
              color: #334155; 
         }
+        h4.text-green-700 { color: #047857; } /* Tailwind Green 700 */
+        h4.text-red-700 { color: #B91C1C; } /* Tailwind Red 700 */
+
 
         .highlight-stat {
             color: #3B82F6; /* Blue 500 */
@@ -99,7 +102,7 @@
             color: #475569; /* Slate 600 for better readability */
             font-size: 1.15rem; /* Slightly larger */
             line-height: 1.65;
-            margin-bottom: 4rem; /* Increased spacing */
+            margin-bottom: 3.5rem; /* Adjusted spacing */
             text-align: center;
             max-width: 680px; /* Adjusted width */
             margin-left: auto;
@@ -253,6 +256,10 @@
         .list-disc > li::marker {
             color: #3B82F6; 
         }
+        /* Specific styling for food lists markers */
+        .food-list-allowed li::marker { color: #10B981; } /* Green for allowed */
+        .food-list-triggers li::marker { color: #EF4444; } /* Red for triggers */
+
 
         .footer-text {
             font-size: 0.9rem; /* Slightly larger */
@@ -288,8 +295,7 @@
 
 <div class="main-content-area">
 
-    <header class="mb-16">
-        <h1>Navigating Ulcerative Colitis</h1>
+    <header class="mb-12"> <h1>Navigating Ulcerative Colitis</h1>
         <p class="page-subtitle">A Comprehensive Infographic on Understanding and Managing This Condition</p>
     </header>
 
@@ -483,8 +489,48 @@
             </div>
         </div>
 
-        <div class="gemini-feature-section">
-            <h3 class="text-center mb-3">✨ Personalized Diet Ideas Generator</h3>
+        <div class="mt-12">
+            <h3 class="text-center">General Food Guidelines: Often Tolerated vs. Common Triggers</h3>
+            <p class="visualization-context-text mb-6">
+                Managing diet is a key part of living with Ulcerative Colitis. While individual tolerances vary greatly, some foods are generally better tolerated, especially during remission or mild symptoms, while others are common triggers, particularly during flare-ups.
+                <strong class="block mt-2 text-slate-700">Always listen to your body and work with your doctor or a registered dietitian to identify your personal trigger foods and create a sustainable eating plan.</strong>
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-green-50 border border-green-200 rounded-lg shadow-sm">
+                    <h4 class="text-lg font-semibold text-green-700 mb-3">Foods Often Better Tolerated</h4>
+                    <p class="text-sm text-green-600 mb-4">These are often easier to digest, especially when symptoms are mild or in remission. Focus on how foods are prepared (e.g., cooked, peeled).</p>
+                    <ul class="list-disc food-list-allowed pl-5 space-y-1.5 text-slate-700 text-base">
+                        <li><strong>Lean Proteins:</strong> Cooked chicken (skinless), turkey, fish (baked, broiled, or steamed), eggs.</li>
+                        <li><strong>Refined Grains:</strong> White rice, pasta, noodles, white bread (sourdough may be better tolerated by some), oatmeal, cream of wheat.</li>
+                        <li><strong>Cooked Vegetables (Low Fiber):</strong> Carrots, green beans, squash (peeled), potatoes (peeled), asparagus tips – all well-cooked.</li>
+                        <li><strong>Fruits (Low Fiber):</strong> Bananas (ripe), cantaloupe, honeydew melon, applesauce, canned peaches/pears (in own juice, peeled), cooked or pureed fruits.</li>
+                        <li><strong>Dairy/Alternatives (if tolerated):</strong> Lactose-free milk, plain yogurt (with live cultures, if tolerated), hard cheeses in moderation. Some may need dairy-free alternatives like almond or rice milk.</li>
+                        <li><strong>Fats (in moderation):</strong> Olive oil, avocado (if tolerated in small amounts).</li>
+                        <li><strong>Hydration:</strong> Water, electrolyte drinks (if needed), clear broths.</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 bg-red-50 border border-red-200 rounded-lg shadow-sm">
+                    <h4 class="text-lg font-semibold text-red-700 mb-3">Foods That May Trigger Symptoms</h4>
+                    <p class="text-sm text-red-600 mb-4">These are common irritants for many with UC, especially during flare-ups. Keeping a food diary can help identify personal triggers.</p>
+                    <ul class="list-disc food-list-triggers pl-5 space-y-1.5 text-slate-700 text-base">
+                        <li><strong>High-Fiber Foods:</strong> Raw vegetables (especially cruciferous like broccoli, cauliflower, cabbage, Brussels sprouts), whole grains (whole wheat bread, brown rice, quinoa), legumes (beans, lentils, peas), nuts, seeds.</li>
+                        <li><strong>Spicy Foods:</strong> Hot peppers, chili, spicy sauces.</li>
+                        <li><strong>Fatty/Greasy Foods:</strong> Fried foods, fast food, fatty cuts of meat, rich sauces, cream.</li>
+                        <li><strong>Dairy (for many):</strong> Milk, ice cream, soft cheeses (if lactose intolerant or sensitive).</li>
+                        <li><strong>Caffeine & Alcohol:</strong> Coffee, tea, soda, alcoholic beverages can irritate the gut.</li>
+                        <li><strong>Sugary Foods & Drinks:</strong> Candy, pastries, sugary sodas, fruit juices with high sugar content (can cause osmotic diarrhea). Sorbitol and other sugar alcohols can also be problematic.</li>
+                        <li><strong>Tough Meats:</strong> Red meat, processed meats (sausages, hot dogs) can be harder to digest for some.</li>
+                        <li><strong>Insoluble Fiber:</strong> Skins and seeds of fruits and vegetables.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="visualization-context-text mt-6">
+                <span class="font-semibold text-slate-700">Important Note:</span> This is a general guide. Individual responses to food can vary significantly. A food diary and consultation with healthcare professionals are essential for personalized dietary management. <span class="citation">[General IBD dietary guidelines, e.g., Crohn's & Colitis Foundation]</span>
+            </p>
+        </div>
+        <div class="gemini-feature-section mt-12"> <h3 class="text-center mb-3">✨ Personalized Diet Ideas Generator</h3>
             <p class="visualization-context-text text-center mb-5">Need some food inspiration? Tell us about your current dietary needs or what you're looking for (e.g., "easy-to-digest breakfast," "low-lactose snacks for a sensitive gut") to get some general meal ideas.</p>
             <textarea id="dietPreferences" class="gemini-input h-28" placeholder="e.g., 'easy-to-digest breakfast', 'low-lactose snacks'"></textarea> <button id="generateDietIdeasBtn" class="gemini-button">Get Diet Ideas</button>
             <div id="dietIdeasLoader" class="hidden loading-spinner"></div>
