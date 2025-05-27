@@ -482,8 +482,7 @@
                 </div>
                 
                 <div class="symptom-card gut">
-                    <div class="symptom-icon"><i class="fas fa-pain"></i></div>
-                    <div>
+                    <div class="symptom-icon"><i class="fas fa-procedures"></i></div> <div>
                         <strong>Abdominal (belly) pain</strong> and cramping, <strong>Pain in the rectum</strong>
                     </div>
                 </div>
@@ -493,29 +492,25 @@
                 <h3>General Symptoms Affecting Well-being</h3>
                 
                 <div class="symptom-card systemic">
-                    <div class="symptom-icon"><i class="fas fa-tired"></i></div>
-                    <div>
+                    <div class="symptom-icon"><i class="fas fa-bed"></i></div> <div>
                         <strong>Fatigue</strong> (feeling very tired and lacking energy)
                     </div>
                 </div>
                 
                 <div class="symptom-card systemic">
-                    <div class="symptom-icon"><i class="fas fa-weight"></i></div>
-                    <div>
+                    <div class="symptom-icon"><i class="fas fa-weight-scale"></i></div> <div>
                         <strong>Unintended weight loss</strong> and reduced appetite
                     </div>
                 </div>
                 
                 <div class="symptom-card systemic">
-                    <div class="symptom-icon"><i class="fas fa-thermometer-full"></i></div>
-                    <div>
+                    <div class="symptom-icon"><i class="fas fa-thermometer-half"></i></div> <div>
                         <strong>Fever</strong> (especially during severe flare-ups)
                     </div>
                 </div>
                 
                 <div class="symptom-card systemic">
-                    <div class="symptom-icon"><i class="fas fa-heartbeat"></i></div>
-                    <div>
+                    <div class="symptom-icon"><i class="fas fa-heart-pulse"></i></div> <div>
                         <strong>Anemia</strong> (low red blood cell count, often due to blood loss, causing tiredness and paleness)
                     </div>
                 </div>
@@ -527,8 +522,7 @@
                 
                 <div class="grid grid-cols-1 gap-6 mt-6">
                     <div class="symptom-card eim">
-                        <div class="symptom-icon"><i class="fas fa-bone"></i></div>
-                        <div>
+                        <div class="symptom-icon"><i class="fas fa-joint"></i></div> <div>
                             <strong>Arthritis</strong> (painful, swollen joints) - most common EIM
                         </div>
                     </div>
@@ -541,15 +535,13 @@
                     </div>
                     
                     <div class="symptom-card eim">
-                        <div class="symptom-icon"><i class="fas fa-allergies"></i></div>
-                        <div>
+                        <div class="symptom-icon"><i class="fas fa-disease"></i></div> <div>
                             <strong>Skin conditions</strong> (erythema nodosum, pyoderma gangrenosum)
                         </div>
                     </div>
                     
                     <div class="symptom-card eim">
-                        <div class="symptom-icon"><i class="fas fa-liver"></i></div>
-                        <div>
+                        <div class="symptom-icon"><i class="fas fa-bacterium"></i></div> <div>
                             <strong>Liver conditions</strong> (primary sclerosing cholangitis)
                         </div>
                     </div>
@@ -709,6 +701,7 @@
                 <button id="generateDietIdeasBtn" class="gemini-button">Get Diet Ideas</button>
                 <div id="dietIdeasLoader" class="hidden loading-spinner"></div>
                 <div id="dietIdeasOutput" class="gemini-output mt-5 hidden"></div>
+                 <p class="disclaimer-text">This tool offers general diet ideas, not medical advice. Always discuss your dietary plan with your healthcare provider or a registered dietitian.</p>
             </div>
 
             <div class="mt-12">
@@ -722,8 +715,7 @@
         </section>
 
         <footer class="footer-text">
-            <p>Made By Eeman</p>
-        </footer>
+            <p>Made By Eeman</p> </footer>
     </div>
 
     <script>
@@ -874,7 +866,7 @@
                     labels: [wrapLabel('Arthritis (Joints)',10), wrapLabel('Skin Issues (e.g., Erythema Nodosum)',15), wrapLabel('Eye Issues (e.g., Uveitis)',12), wrapLabel('PSC (Liver/Bile Duct)',10)],
                     datasets: [{
                         label: 'Approx. Prevalence of EIMs (%)',
-                        data: [40, 20, 12, 7],
+                        data: [40, 20, 12, 7], // Example percentages
                         backgroundColor: CALM_CHART_COLORS.primaryAccentMedium,
                         borderRadius: 4,
                         borderWidth: 0,
@@ -905,7 +897,7 @@
                         wrapLabel('Steroid-Dependent (Symptoms Return on Taper)',20)
                     ],
                     datasets: [{
-                        data: [54, 16, 18, 12],
+                        data: [54, 16, 18, 12], // Example percentages
                         backgroundColor: [CALM_CHART_COLORS.primaryAccentDark, CALM_CHART_COLORS.primaryAccentMedium, CALM_CHART_COLORS.accentLighter, CALM_CHART_COLORS.accentPale],
                         borderColor: CALM_CHART_COLORS.neutralBase,
                         borderWidth: 4,
@@ -955,7 +947,7 @@
                     labels: [wrapLabel('Iron Deficiency Anemia',15), wrapLabel('Vitamin D Deficiency',12), wrapLabel('Vitamin B12 Deficiency',12), wrapLabel('Calcium Deficiency',12)],
                     datasets: [{
                         label: 'Estimated Prevalence of Deficiency (%)',
-                        data: [76, 60, 25, 30],
+                        data: [76, 60, 25, 30], // Example percentages
                         backgroundColor: CALM_CHART_COLORS.primaryAccentMedium,
                         borderRadius: 4,
                         borderWidth: 0,
@@ -985,7 +977,7 @@
         const dietIdeasLoader = document.getElementById('dietIdeasLoader');
         const dietIdeasOutput = document.getElementById('dietIdeasOutput');
 
-        const apiKey = "";
+        const apiKey = "AIzaSyCTyBJ5dQZoWWgB14Wjd0l7heigxDRT-qs"; // API Key updated here
 
         async function callGeminiAPI(prompt, outputElement, loaderElement, buttonElement) {
             loaderElement.classList.remove('hidden');
@@ -996,6 +988,7 @@
             
             let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
             const payload = { contents: chatHistory };
+            // Using gemini-2.0-flash as per instructions
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
             try {
@@ -1007,8 +1000,19 @@
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    console.error("API Error Data:", errorData);
-                    throw new Error(`API request failed with status ${response.status}: ${errorData.error?.message || 'Unknown error'}`);
+                    console.error("API Error Data:", errorData); // Log detailed error from API
+                    // Try to extract a more specific message if available
+                    let errorMessage = `API request failed with status ${response.status}.`;
+                    if (errorData && errorData.error && errorData.error.message) {
+                        errorMessage += ` Message: ${errorData.error.message}`;
+                    }
+                     // Check for specific API key related errors, though the API might not always return a distinct code for this
+                    if (response.status === 400 && errorData.error && errorData.error.message && errorData.error.message.toLowerCase().includes("api key not valid")) {
+                        errorMessage = "The provided API key is not valid. Please check the key and try again.";
+                    } else if (response.status === 403) {
+                         errorMessage = "API key missing or invalid, or you do not have permission to use this service. Please check your API key and project setup.";
+                    }
+                    throw new Error(errorMessage);
                 }
 
                 const result = await response.json();
@@ -1019,14 +1023,16 @@
                     const text = result.candidates[0].content.parts[0].text;
                     outputElement.textContent = text;
                 } else if (result.promptFeedback && result.promptFeedback.blockReason) {
+                    // Handle cases where the prompt was blocked by safety settings
                     outputElement.textContent = `The request was blocked. Reason: ${result.promptFeedback.blockReason}. This can sometimes happen due to safety filters. Please try rephrasing your input.`;
                     console.warn("Gemini API prompt blocked:", result.promptFeedback);
-                } else {
+                }
+                else {
                     outputElement.textContent = 'Could not retrieve information. The response from the AI was not in the expected format. Please try again.';
-                    console.warn("Gemini API unexpected response format:", result);
+                    console.warn("Gemini API unexpected response format:", result); // Log the unexpected response
                 }
             } catch (error) {
-                outputElement.textContent = `An error occurred: ${error.message}. Please check your network connection or try rephrasing your input. If the issue persists, the AI service might be temporarily unavailable.`;
+                outputElement.textContent = `An error occurred: ${error.message}. Please check your network connection or try rephrasing your input. If the issue persists, the AI service might be temporarily unavailable or there might be an issue with the API key.`;
                 console.error("Gemini API call error:", error);
             } finally {
                 loaderElement.classList.add('hidden');
@@ -1044,6 +1050,7 @@
                     doctorQuestionsOutput.classList.remove('hidden');
                     return;
                 }
+                // Updated prompt for clarity and to ensure it focuses on questions
                 const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC). Generate a list of 5-7 concise and practical questions that a patient with Ulcerative Colitis could ask their doctor about the following specific topic: "${topic}". The questions should be clear, focused, and aimed at helping the patient better understand their condition, treatment options, potential side effects, lifestyle adjustments, or long-term management related to the specified topic. Format the output as a numbered list. IMPORTANT: Do NOT provide any medical advice, diagnoses, or treatment recommendations. Only generate relevant questions. Start the response directly with the first question.`;
                 callGeminiAPI(prompt, doctorQuestionsOutput, doctorQuestionsLoader, generateDoctorQuestionsBtn);
             });
@@ -1057,7 +1064,8 @@
                     dietIdeasOutput.classList.remove('hidden');
                     return;
                 }
-                const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC). I am looking for general meal or food ideas that are often considered suitable for people with Ulcerative Colitis, keeping in mind the following preferences, restrictions, or situation: "${preferences}". Please provide 3-4 simple meal or snack ideas. For each idea, briefly explain why it might be generally suitable (e.g., "easy to digest," "low in common irritants," "good source of X nutrient often needed"). Format the output clearly, perhaps using bullet points for each idea with the explanation nested. IMPORTANT: Crucially, emphasize that these are general suggestions and NOT personalized medical or nutritional advice. State clearly that the user MUST always consult with their doctor or a registered dietitian for dietary plans tailored to their specific UC condition and needs. Start the response directly with the meal ideas. Conclude with this mandatory disclaimer.`;
+                // Updated prompt for clarity and to ensure it includes the disclaimer
+                const prompt = `You are a helpful assistant for individuals with Ulcerative Colitis (UC). I am looking for general meal or food ideas that are often considered suitable for people with Ulcerative Colitis, keeping in mind the following preferences, restrictions, or situation: "${preferences}". Please provide 3-4 simple meal or snack ideas. For each idea, briefly explain why it might be generally suitable (e.g., "easy to digest," "low in common irritants," "good source of X nutrient often needed"). Format the output clearly, perhaps using bullet points for each idea with the explanation nested. IMPORTANT: Crucially, emphasize that these are general suggestions and NOT personalized medical or nutritional advice. State clearly that the user MUST always consult with their doctor or a registered dietitian for dietary plans tailored to their specific UC condition and needs. Start the response directly with the meal ideas. Conclude with this mandatory disclaimer: "Disclaimer: These are general suggestions and not personalized medical or nutritional advice. Always consult with your doctor or a registered dietitian for dietary plans tailored to your specific UC condition and needs."`;
                 callGeminiAPI(prompt, dietIdeasOutput, dietIdeasLoader, generateDietIdeasBtn);
             });
         }
