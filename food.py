@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divija's Guide To Eating with UC 🌸</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #FEF6F7; /* Very light pastel pink background */
+            color: #374151; /* Tailwind Gray 700 for body text */
+        }
+        .main-title {
+            font-family: 'Pacifico', cursive;
+            color: #DB2777; /* Tailwind Pink 600 */
+        }
+        .section-title {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            color: #DB2777; /* Tailwind Pink 600 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 24px; /* Slightly larger radius */
+            padding: 2rem 2.5rem; /* Increased padding */
+            margin-bottom: 2.5rem; /* Increased margin */
+            box-shadow: 0 10px 20px -5px rgba(219, 39, 119, 0.08), 0 4px 8px -4px rgba(219, 39, 119, 0.05); /* Softer pink-tinted shadow */
+            border: 1px solid #FCE7F3; /* Tailwind Pink 100 border */
+        }
+        .icon-bg { /* Not used directly anymore, icons are inline */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        /* Pastel Accent Colors */
+        .bg-pastel-green { background-color: #D1FAE5; } /* Green 100 */
+        .text-dark-green { color: #047857; } /* Green 700 */
+        .bg-pastel-yellow { background-color: #FEF9C3; } /* Yellow 100 */
+        .text-dark-yellow { color: #A16207; } /* Yellow 700 */
+        .bg-pastel-blue { background-color: #DBEAFE; } /* Blue 100 */
+        .text-dark-blue { color: #1D4ED8; } /* Blue 700 */
+        .bg-pastel-orange { background-color: #FFEDD5; } /* Orange 100 */
+        .text-dark-orange { color: #C2410C; } /* Orange 700 */
+        .bg-pastel-pink { background-color: #FCE7F3; } /* Pink 100 */
+        .text-dark-pink { color: #BE185D; } /* Pink 700 */
+
+        .chart-container-wrapper {
+            padding: 1.5rem; /* Increased padding */
+            background-color: #FFFBFB; /* Slightly off-white pink */
+            border-radius: 18px; /* Consistent with card */
+            margin-top: 1.5rem;
+            border: 1px solid #FCE7F3; /* Tailwind Pink 100 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px; /* Slightly reduced max-width for better proportions */
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px; /* Adjusted height */
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 320px;
+            }
+        }
+        .food-item {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0; /* Increased padding */
+            font-size: 1rem; /* Slightly larger font */
+        }
+        .food-item span:first-child {
+            margin-right: 1rem; /* Increased margin */
+            font-size: 1.35rem; /* Slightly larger icon */
+            color: #F472B6; /* Tailwind Pink 400 for food icons */
+        }
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem 0; /* Increased padding */
+            border-bottom: 1px dashed #FBCFE8; /* Tailwind Pink 200 */
+        }
+        .tip-item:last-child {
+            border-bottom: none;
+        }
+        .tip-icon {
+            font-size: 1.75rem; /* Larger icon */
+            margin-right: 1.25rem; /* Increased margin */
+            color: #EC4899; /* Tailwind Pink 500 */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            margin-top: 0.125rem; /* Align better with text */
+        }
+        .principle-item {
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-weight: 600; /* Semibold */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .nutrient-card {
+            padding: 1.25rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        <header class="text-center mb-16"> {/* Increased margin */}
+            <h1 class="main-title text-5xl md:text-6xl mb-5">Divija's Guide To Eating with UC</h1>
+            <p class="text-xl text-gray-500">Navigating Ulcerative Colitis with yummy & gentle food choices! 🌸✨</p>
+        </header>
+
+        <main>
+            <section id="intro" class="card">
+                <h2 class="section-title text-3xl md:text-4xl mb-6 text-center">What's UC & Why Diet Matters? 🤔</h2>
+                <p class="text-gray-700 text-lg mb-5 text-center leading-relaxed">Ulcerative Colitis (UC) is when your colon gets inflamed. While food doesn't cause UC, what you eat can really help manage symptoms and make you feel better! It's like giving your tummy a gentle hug. 🤗</p>
+                <div class="flex flex-col sm:flex-row justify-around text-center mt-8 space-y-5 sm:space-y-0 sm:space-x-4">
+                    <div class="p-5 bg-pastel-pink rounded-xl shadow-md">
+                        <span class="text-4xl">🌟</span>
+                        <h3 class="font-semibold text-dark-pink mt-2 text-lg">Symptom Relief</h3>
+                    </div>
+                    <div class="p-5 bg-pastel-green rounded-xl shadow-md">
+                        <span class="text-4xl">💖</span>
+                        <h3 class="font-semibold text-dark-green mt-2 text-lg">Healing Support</h3>
+                    </div>
+                    <div class="p-5 bg-pastel-blue rounded-xl shadow-md">
+                        <span class="text-4xl">😇</span>
+                        <h3 class="font-semibold text-dark-blue mt-2 text-lg">Better Well-being</h3>
+                    </div>
+                </div>
+                <p class="text-md text-gray-500 mt-8 text-center">Remember, everyone's different! This guide gives general tips. Always chat with your doctor or a dietitian. 🧑‍⚕️💬</p>
+            </section>
+
+            <section id="flare-ups" class="card">
+                <h2 class="section-title text-3xl md:text-4xl mb-4 text-center">SOS! Eating During a Flare-Up 🩹</h2>
+                <p class="text-gray-600 text-lg mb-8 text-center leading-relaxed">When UC is active, your tummy needs extra TLC. The goal is to be gentle, reduce symptoms, and help your colon rest and heal. These tips are usually temporary!</p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8 items-center">
+                    <div>
+                        <h3 class="font-semibold text-2xl mb-4 text-dark-orange">Key Principles ✨</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="food-item"><span class="text-2xl">🍚</span> Go for Low Fiber/Low Residue.</li>
+                            <li class="food-item"><span class="text-2xl">🥣</span> Choose Soft Textures.</li>
+                            <li class="food-item"><span class="text-2xl">💧</span> Stay Hydrated (lots of water!).</li>
+                            <li class="food-item"><span class="text-2xl">💪</span> Get Enough Protein & Calories.</li>
+                            <li class="food-item"><span class="text-2xl">🕰️</span> Eat Small, Frequent Meals.</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container-wrapper">
+                        <p class="text-center font-semibold text-dark-orange text-lg mb-3">Flare Diet Focus</p>
+                        <div class="chart-container">
+                            <canvas id="flareDietFocusChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3 text-center">Prioritize easily digestible foods during flares.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                    <div>
+                        <h3 class="font-semibold text-2xl mb-4 text-dark-green">🥰 Foods to Enjoy</h3>
+                        <ul class="space-y-1 text-gray-700">
+                            <li class="food-item"><span>🍌</span> Ripe Bananas, Melon, Applesauce</li>
+                            <li class="food-item"><span>🍑</span> Peeled/Cooked Fruits (Peaches, Pears)</li>
+                            <li class="food-item"><span>🥕</span> Cooked Carrots, Green Beans, Peeled Potatoes</li>
+                            <li class="food-item"><span>🍚</span> White Rice, White Pasta, White Bread</li>
+                            <li class="food-item"><span>🥣</span> Oatmeal, Cream of Wheat</li>
+                            <li class="food-item"><span>🐟</span> Lean Fish (Baked/Steamed)</li>
+                            <li class="food-item"><span>🐔</span> Skinless Poultry (Baked/Steamed)</li>
+                            <li class="food-item"><span>🥚</span> Eggs (Boiled, Poached, Scrambled)</li>
+                            <li class="food-item"><span>🥑</span> Smooth Avocado (in moderation)</li>
+                            <li class="food-item"><span>💧</span> Water, Clear Broths, Diluted Juices (no pulp)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-2xl mb-4 text-dark-pink">😟 Foods to Limit/Avoid</h3>
+                        <ul class="space-y-1 text-gray-700">
+                            <li class="food-item"><span>🍓</span> Raw Fruits with Skin/Seeds (Berries)</li>
+                            <li class="food-item"><span>🥦</span> Raw Veggies, Cruciferous (Broccoli, Cauliflower)</li>
+                            <li class="food-item"><span>🌽</span> Corn, Legumes (Beans, Lentils)</li>
+                            <li class="food-item"><span>🍞</span> Whole Grains, Breads with Seeds</li>
+                            <li class="food-item"><span>🍿</span> Popcorn, Nuts, Seeds</li>
+                            <li class="food-item"><span>🌶️</span> Spicy or Fried Foods</li>
+                            <li class="food-item"><span>🥓</span> Processed Meats</li>
+                            <li class="food-item"><span>🥛</span> Regular Dairy (if lactose intolerant)</li>
+                            <li class="food-item"><span>☕</span> Alcohol, Caffeine, Fizzy Drinks</li>
+                            <li class="food-item"><span>🍬</span> Sugary Sweets & Drinks</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="remission" class="card">
+                <h2 class="section-title text-3xl md:text-4xl mb-4 text-center">Yay! Eating During Remission 🎉</h2>
+                <p class="text-gray-600 text-lg mb-8 text-center leading-relaxed">When symptoms are calm, it's time to nourish your body, maintain health, and keep those flares away! Gradually reintroduce foods.</p>
+
+                <h3 class="font-semibold text-2xl mb-6 text-dark-blue text-center">Key Principles for Happy Remission 🥳</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-8 text-center">
+                    <div class="principle-item bg-pastel-green text-dark-green"><span>🌱</span>Gradual Fiber Reintro</div>
+                    <div class="principle-item bg-pastel-yellow text-dark-yellow"><span>🥗</span>Whole Foods Focus</div>
+                    <div class="principle-item bg-pastel-orange text-dark-orange"><span>✨</span>Anti-Inflammatory</div>
+                    <div class="principle-item bg-pastel-blue text-dark-blue"><span>🌈</span>Variety & Nutrients</div>
+                    <div class="principle-item bg-pastel-pink text-dark-pink"><span>💧</span>Stay Hydrated</div>
+                    <div class="principle-item bg-gray-100 text-gray-700"><span>📝</span>Mind Personal Triggers</div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                    <div>
+                        <h3 class="font-semibold text-2xl mb-4 text-dark-green">🤩 Foods to Explore</h3>
+                         <ul class="space-y-1 text-gray-700">
+                            <li class="food-item"><span>🍓</span> Wide Variety of Fruits (Berries, Apples)</li>
+                            <li class="food-item"><span>🥦</span> Colorful Veggies (Spinach, Sweet Potatoes)</li>
+                            <li class="food-item"><span>🌾</span> Whole Grains (Oats, Quinoa - if tolerated)</li>
+                            <li class="food-item"><span>🐟</span> Fatty Fish (Salmon, Mackerel - Omega-3s!)</li>
+                            <li class="food-item"><span>🐔</span> Lean Meats, Poultry, Eggs</li>
+                            <li class="food-item"><span>🫘</span> Legumes (Beans, Lentils - introduce slowly)</li>
+                            <li class="food-item"><span>🥛</span> Yogurt with Probiotics, Kefir</li>
+                            <li class="food-item"><span>🥑</span> Healthy Fats (Avocado, Olive Oil)</li>
+                            <li class="food-item"><span>🥜</span> Nuts & Seeds (in moderation, if tolerated)</li>
+                            <li class="food-item"><span>🍵</span> Herbal Teas, Water</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-2xl mb-4 text-dark-pink">🤨 Foods to Monitor</h3>
+                        <ul class="space-y-1 text-gray-700">
+                            <li class="food-item"><span>🍟</span> Highly Processed Foods</li>
+                            <li class="food-item"><span>🥩</span> Red Meat (limit frequency)</li>
+                            <li class="food-item"><span>🥓</span> Processed Meats (sausages, bacon)</li>
+                            <li class="food-item"><span>🍩</span> Added Sugars & Sweets</li>
+                            <li class="food-item"><span>🍾</span> Excessive Alcohol</li>
+                            <li class="food-item"><span>❌</span> Known Personal Trigger Foods</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="chart-container-wrapper mt-10">
+                    <p class="text-center font-semibold text-dark-blue text-lg mb-3">Remission Diet: Balanced Plate</p>
+                    <div class="chart-container">
+                        <canvas id="remissionPlateChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-3 text-center">Aim for a diverse, nutrient-rich diet in remission.</p>
+                </div>
+            </section>
+
+            <section id="prep-tips" class="card">
+                <h2 class="section-title text-3xl md:text-4xl mb-6 text-center">Kitchen Magic: Prep & Texture Tips 🪄</h2>
+                <p class="text-gray-600 text-lg mb-8 text-center leading-relaxed">How you cook can be as important as what you cook! These tricks can make foods easier on your tummy.</p>
+                <div class="space-y-5">
+                    <div class="tip-item">
+                        <span class="tip-icon">♨️</span>
+                        <div><h3 class="font-semibold text-xl text-dark-orange">Cook Thoroughly</h3><p class="text-gray-600 text-md leading-relaxed">Softens food and makes it easier to digest.</p></div>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">🧑‍🍳</span>
+                        <div><h3 class="font-semibold text-xl text-dark-orange">Peel & De-seed</h3><p class="text-gray-600 text-md leading-relaxed">Removes tough skins and seeds from fruits/veggies.</p></div>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">🥤</span>
+                        <div><h3 class="font-semibold text-xl text-dark-orange">Blend & Puree</h3><p class="text-gray-600 text-md leading-relaxed">Great for smoothies and soups, making nutrients easy to absorb.</p></div>
+                    </div>
+                     <div class="tip-item">
+                        <span class="tip-icon">🍲</span>
+                        <div><h3 class="font-semibold text-xl text-dark-orange">Gentle Cooking</h3><p class="text-gray-600 text-md leading-relaxed">Steam, boil, bake, or poach. Avoid frying.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="key-nutrients" class="card">
+                <h2 class="section-title text-3xl md:text-4xl mb-6 text-center">Nutrient Power-Ups! 🔋⚡</h2>
+                <p class="text-gray-600 text-lg mb-8 text-center leading-relaxed">UC can sometimes make it tricky to get all your nutrients. Focus on these superstars, especially if you've had a flare.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="nutrient-card bg-pastel-pink">
+                        <h3 class="font-bold text-2xl text-dark-pink mb-2">Iron 💪</h3>
+                        <p class="text-sm text-gray-700 mb-1">For energy & to prevent anemia.</p>
+                        <p class="text-xs text-gray-600">Find it in: Lean red meat, poultry, fish, eggs, cooked spinach, fortified cereals.</p>
+                    </div>
+                    <div class="nutrient-card bg-pastel-blue">
+                        <h3 class="font-bold text-2xl text-dark-blue mb-2">Calcium 🦴</h3>
+                        <p class="text-sm text-gray-700 mb-1">For strong bones.</p>
+                        <p class="text-xs text-gray-600">Find it in: Dairy/lactose-free options, fortified plant milks, leafy greens (cooked), tofu.</p>
+                    </div>
+                    <div class="nutrient-card bg-pastel-yellow">
+                        <h3 class="font-bold text-2xl text-dark-yellow mb-2">Vitamin D ☀️</h3>
+                        <p class="text-sm text-gray-700 mb-1">Helps absorb calcium, supports immunity.</p>
+                        <p class="text-xs text-gray-600">Find it in: Oily fish, egg yolks, fortified foods.</p>
+                    </div>
+                    <div class="nutrient-card bg-pastel-green">
+                        <h3 class="font-bold text-2xl text-dark-green mb-2">Protein 🍗</h3>
+                        <p class="text-sm text-gray-700 mb-1">For healing and strength.</p>
+                        <p class="text-xs text-gray-600">Find it in: Lean meats, fish, eggs, tofu, dairy/alternatives.</p>
+                    </div>
+                     <div class="nutrient-card bg-pastel-orange">
+                        <h3 class="font-bold text-2xl text-dark-orange mb-2">B Vitamins 💡</h3>
+                        <p class="text-sm text-gray-700 mb-1">For energy and cell health.</p>
+                        <p class="text-xs text-gray-600">Find it in: Meats, fish, eggs, dairy, fortified grains, leafy greens.</p>
+                    </div>
+                     <div class="nutrient-card bg-gray-100">
+                        <h3 class="font-bold text-2xl text-gray-700 mb-2">Hydration 💧</h3>
+                        <p class="text-sm text-gray-700 mb-1">Super important, always!</p>
+                        <p class="text-xs text-gray-600">Water, broths, oral rehydration solutions if needed.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="final-tips" class="card">
+                <h2 class="section-title text-3xl md:text-4xl mb-6 text-center">Your Path Forward 🗺️</h2>
+                <ul class="space-y-5 text-gray-700">
+                    <li class="tip-item">
+                        <span class="tip-icon">💖</span>
+                        <div><h3 class="font-semibold text-xl">You're Unique!</h3><p class="text-md leading-relaxed">Listen to your body. What works for one might not for another.</p></div>
+                    </li>
+                    <li class="tip-item">
+                        <span class="tip-icon">🧑‍⚕️🤝</span>
+                        <div><h3 class="font-semibold text-xl">Team Up with Pros!</h3><p class="text-md leading-relaxed">Always work with your doctor and a GI dietitian. They're your best guides!</p></div>
+                    </li>
+                    <li class="tip-item">
+                        <span class="tip-icon">📝</span>
+                        <div><h3 class="font-semibold text-xl">Keep a Food Journal</h3><p class="text-md leading-relaxed">Helps you spot personal trigger foods and patterns.</p></div>
+                    </li>
+                    <li class="tip-item">
+                        <span class="tip-icon">🌿</span>
+                        <div><h3 class="font-semibold text-xl">Lifestyle Matters</h3><p class="text-md leading-relaxed">Manage stress and get enough sleep for overall well-being.</p></div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 pt-10 border-t border-pink-200">
+         
+            <p class="text-sm text-gray-400 mt-3">Made with love by your Eeman.</p>
+        </footer>
+    </div>
+
+<script>
+    const chartDefaultOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+                labels: {
+                    font: { size: 11, family: 'Lato' }, // Updated font
+                    color: '#4A5568' 
+                }
+            },
+            tooltip: {
+                bodyFont: { family: 'Lato' }, // Updated font
+                titleFont: { family: 'Lato', weight: 'bold' }, // Updated font
+                backgroundColor: '#ffffff',
+                titleColor: '#DB2777',
+                bodyColor: '#374151',
+                borderColor: '#FBCFE8',
+                borderWidth: 1,
+                padding: 10,
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) { return label.join(' '); }
+                        return label;
+                    }
+                }
+            }
+        },
+        scales: {
+            y: { display: false },
+            x: { display: false }
+        }
+    };
+
+    if (document.getElementById('flareDietFocusChart')) {
+        const flareCtx = document.getElementById('flareDietFocusChart').getContext('2d');
+        new Chart(flareCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Gentle Foods (Focus)', 'Irritating Foods (Limit)'],
+                datasets: [{
+                    label: 'Flare Diet Focus',
+                    data: [75, 25],
+                    backgroundColor: ['#A7F3D0', '#FFD6A5'], // Pastel Green, Pastel Orange
+                    borderColor: ['#6EE7B7', '#FED7AA'],
+                    borderWidth: 2,
+                    hoverOffset: 8, // Increased hover offset
+                    hoverBorderColor: '#FEF6F7'
+                }]
+            },
+            options: {
+                ...chartDefaultOptions,
+                cutout: '65%' // Slightly larger cutout
+            }
+        });
+    }
+
+    if (document.getElementById('remissionPlateChart')) {
+        const remissionCtx = document.getElementById('remissionPlateChart').getContext('2d');
+        new Chart(remissionCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Fruits & Veggies', 'Lean Proteins', 'Whole Grains (if tolerated)', 'Healthy Fats'],
+                datasets: [{
+                    label: 'Remission Plate Balance',
+                    data: [40, 25, 20, 15],
+                    backgroundColor: [
+                        '#9BF6FF', // Pastel Blue
+                        '#CAFFBF', // Pastel Green
+                        '#FFD6A5', // Pastel Orange
+                        '#FDFFB6'  // Pastel Yellow
+                    ],
+                    borderColor: [ // Slightly darker shades for borders
+                        '#7EDCE2',
+                        '#A4F3B5',
+                        '#FFC98C',
+                        '#FAFF9A'
+                    ],
+                    borderWidth: 2,
+                    hoverOffset: 8, // Increased hover offset
+                    hoverBorderColor: '#FEF6F7'
+                }]
+            },
+            options: {
+                ...chartDefaultOptions
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
